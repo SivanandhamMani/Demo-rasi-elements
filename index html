@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rasi Tattva — The Cosmic Index / ராசி தத்துவம் — பிரபஞ்ச வகைப்பேடு</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   DARK THEME (default)
+═══════════════════════════════════════════ */
+:root {
+  --bg:        #0a0a0a;
+  --bg2:       #111111;
+  --bg3:       #181818;
+  --gold:      #c9a84c;
+  --gold-lt:   #e8c97a;
+  --gold-dim:  rgba(201,168,76,0.18);
+  --white:     #f5f0e8;
+  --white-dim: rgba(245,240,232,0.7);
+  --muted:     #7a7060;
+  --border:    rgba(201,168,76,0.2);
+  --border-wk: rgba(255,255,255,0.06);
+  --toggle-bg: #1a1a1a;
+  --toggle-border: rgba(201,168,76,0.3);
+  --toggle-shadow: 0 4px 24px rgba(0,0,0,0.5);
+}
+
+/* ═══════════════════════════════════════════
+   LIGHT THEME
+═══════════════════════════════════════════ */
+[data-theme="light"] {
+  --bg:        #faf7f2;
+  --bg2:       #f2ede4;
+  --bg3:       #ede8df;
+  --gold:      #9a6e1e;
+  --gold-lt:   #7a5012;
+  --gold-dim:  rgba(154,110,30,0.12);
+  --white:     #1a1208;
+  --white-dim: rgba(26,18,8,0.75);
+  --muted:     #7a6840;
+  --border:    rgba(154,110,30,0.25);
+  --border-wk: rgba(0,0,0,0.08);
+  --toggle-bg: #f0ebe0;
+  --toggle-border: rgba(154,110,30,0.3);
+  --toggle-shadow: 0 4px 24px rgba(0,0,0,0.12);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:'Cormorant Garamond',Georgia,serif;
+  line-height:1.7;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+/* ── FLOATING CONTROLS ── */
+.controls-bar {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.ctrl-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  background: var(--toggle-bg);
+  border: 1px solid var(--toggle-border);
+  color: var(--gold);
+  font-family: 'Raleway', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: var(--toggle-shadow);
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+.ctrl-btn:hover {
+  background: var(--gold);
+  color: var(--bg);
+  border-color: var(--gold);
+}
+.ctrl-btn svg {
+  width: 14px; height: 14px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── PAGE WRAPPER ── */
+.page{
+  max-width:860px;
+  margin:0 auto;
+  padding:24px 20px;
+}
+
+/* Language panels */
+.lang-panel { display: none; }
+.lang-panel.active { display: block; }
+
+/* ── PART DIVIDER ── */
+.part-break{
+  border:none;
+  border-top:1px solid var(--border);
+  margin:80px 0;
+  position:relative;
+}
+.part-break::after{
+  content:'✦';
+  position:absolute;
+  top:-10px;left:50%;
+  transform:translateX(-50%);
+  background:var(--bg);
+  padding:0 14px;
+  color:var(--gold);
+  font-size:14px;
+  transition: background 0.35s ease;
+}
+
+/* ── HERO / COVER ── */
+.hero{
+  min-height:90vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:80px 20px 60px;
+}
+
+.hero-ring{
+  width:180px;height:180px;
+  border-radius:50%;
+  border:1px solid var(--gold);
+  box-shadow:0 0 50px rgba(201,168,76,0.12);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:48px;
+  position:relative;
+}
+.hero-ring::before{
+  content:'';position:absolute;inset:12px;
+  border-radius:50%;border:1px solid var(--border);
+}
+.hero-icon{font-size:64px;color:var(--gold);line-height:1;}
+
+.eyebrow{
+  font-family:'Raleway',sans-serif;
+  font-size:10px;letter-spacing:6px;
+  text-transform:uppercase;
+  color:var(--gold);opacity:.7;
+  margin-bottom:18px;
+}
+
+.book-title{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(30px,7vw,58px);
+  color:var(--gold-lt);
+  letter-spacing:3px;line-height:1.15;
+  margin-bottom:14px;
+}
+
+.book-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-weight:300;
+  font-size:clamp(16px,2.5vw,22px);
+  color:var(--muted);
+  margin-bottom:48px;
+}
+
+/* ── SIGN HERO ── */
+.sign-hero{
+  text-align:center;
+  padding:80px 20px 50px;
+}
+.sign-symbol{
+  font-size:80px;line-height:1;
+  color:var(--gold);
+  text-shadow:0 0 40px rgba(201,168,76,0.3);
+  margin-bottom:20px;
+  display:block;
+}
+.sign-number{
+  font-family:'Raleway',sans-serif;
+  font-size:10px;letter-spacing:5px;
+  text-transform:uppercase;
+  color:var(--muted);margin-bottom:10px;
+}
+.sign-name{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(36px,8vw,68px);
+  color:var(--gold-lt);
+  letter-spacing:4px;line-height:1;
+  margin-bottom:14px;
+}
+.sign-tagline{
+  font-style:italic;font-weight:300;
+  font-size:clamp(15px,2.2vw,20px);
+  color:var(--muted);margin-bottom:28px;
+}
+.sign-intro{
+  font-size:clamp(15px,2vw,17px);
+  color:var(--white-dim);
+  max-width:640px;margin:0 auto;
+  line-height:1.9;
+}
+
+/* ── GOLD DIVIDER ── */
+.gdivider{
+  display:flex;align-items:center;gap:14px;
+  margin:48px 0;
+}
+.gdivider-line{
+  flex:1;height:1px;
+  background:linear-gradient(to right,transparent,var(--gold),transparent);
+  opacity:.3;
+}
+.gdivider-dot{
+  width:6px;height:6px;
+  background:var(--gold);
+  transform:rotate(45deg);flex-shrink:0;
+}
+
+/* ── SECTION ── */
+.section{padding:52px 0;border-bottom:1px solid var(--border-wk);}
+.section:last-child{border-bottom:none;}
+
+.sec-label{
+  font-family:'Raleway',sans-serif;
+  font-size:9px;letter-spacing:6px;
+  text-transform:uppercase;
+  color:var(--gold);opacity:.65;
+  margin-bottom:18px;
+}
+.sec-title{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(17px,3.2vw,26px);
+  color:var(--gold-lt);
+  margin-bottom:24px;line-height:1.3;
+}
+
+.body-text{
+  font-size:clamp(15px,1.9vw,17px);
+  color:var(--white-dim);
+  line-height:1.95;margin-bottom:18px;
+}
+.italic-note{
+  font-style:italic;font-weight:300;
+  font-size:clamp(16px,2.2vw,19px);
+  color:var(--gold-lt);
+  border-left:2px solid var(--gold);
+  padding:12px 0 12px 20px;
+  margin:24px 0;opacity:.9;
+}
+
+/* ── CORE GRID ── */
+.core-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);
+  margin:24px 0;
+}
+.core-cell{
+  background:var(--bg2);
+  padding:16px 14px;
+  transition: background 0.35s ease;
+}
+.core-lbl{
+  font-family:'Raleway',sans-serif;
+  font-size:9px;letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--gold);opacity:.55;
+  margin-bottom:6px;
+}
+.core-val{font-size:15px;color:var(--white);}
+
+/* ── TATTVA GRID ── */
+.tattva-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:14px;margin:24px 0;
+}
+.tattva-card{
+  border:1px solid var(--border);
+  padding:18px 16px;
+  background:rgba(201,168,76,0.03);
+  transition: background 0.35s ease;
+}
+.tattva-lbl{
+  font-family:'Raleway',sans-serif;
+  font-size:9px;letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--gold);opacity:.55;
+  margin-bottom:7px;
+}
+.tattva-val{font-size:14px;color:var(--white-dim);line-height:1.55;}
+
+/* ── CONDITION BOX ── */
+.cond-box{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:16px;margin:22px 0;
+}
+@media(max-width:480px){.cond-box{grid-template-columns:1fr;}}
+.cond-card{padding:18px;border:1px solid var(--border);}
+.cond-card.weak{border-left:3px solid rgba(255,255,255,0.2);}
+.cond-card.strong{border-left:3px solid var(--gold);}
+.cond-lbl{
+  font-family:'Raleway',sans-serif;
+  font-size:9px;letter-spacing:4px;
+  text-transform:uppercase;opacity:.6;
+  margin-bottom:8px;
+}
+.cond-card.weak .cond-lbl{color:var(--white);}
+.cond-card.strong .cond-lbl{color:var(--gold);}
+.cond-txt{font-size:14px;color:var(--white-dim);line-height:1.7;}
+
+/* ── LIST GROUP ── */
+.list-group{margin:22px 0;}
+.list-group-title{
+  font-family:'Cinzel Decorative',serif;
+  font-size:12px;color:var(--gold-lt);
+  letter-spacing:1px;margin-bottom:12px;
+  padding-bottom:7px;
+  border-bottom:1px solid rgba(201,168,76,0.12);
+}
+.items-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+  gap:6px;
+}
+.item-tag{
+  display:flex;align-items:flex-start;gap:9px;
+  font-size:14px;color:var(--white-dim);
+  line-height:1.5;padding:5px 0;
+}
+.item-tag::before{
+  content:'▸';color:var(--gold);
+  font-size:9px;margin-top:4px;
+  flex-shrink:0;opacity:.6;
+}
+
+/* ── TRANSITION TABLE ── */
+.trans-table{
+  width:100%;border-collapse:collapse;
+  margin:22px 0;font-size:14px;
+}
+.trans-table th{
+  font-family:'Raleway',sans-serif;
+  font-size:9px;letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--gold);opacity:.6;
+  padding:11px 14px;text-align:left;
+  border-bottom:1px solid var(--border);
+  background:rgba(201,168,76,0.04);
+}
+.trans-table td{
+  padding:10px 14px;
+  border-bottom:1px solid var(--border-wk);
+  color:var(--white-dim);vertical-align:top;
+}
+.trans-table tr:hover td{background:rgba(201,168,76,0.04);}
+.arr{color:var(--gold);opacity:.4;text-align:center;width:36px;}
+
+/* ── FORCE PILLS ── */
+.force-section{margin:22px 0;}
+.force-cat{margin-bottom:22px;}
+.force-cat-title{
+  font-family:'Raleway',sans-serif;
+  font-size:9px;letter-spacing:5px;
+  text-transform:uppercase;
+  color:var(--gold);opacity:.55;
+  margin-bottom:12px;
+}
+.force-pills{display:flex;flex-wrap:wrap;gap:8px;}
+.pill{
+  padding:5px 14px;
+  border:1px solid var(--border);
+  font-size:13px;color:var(--white-dim);
+  background:rgba(201,168,76,0.04);
+}
+
+/* ── ESSENCE BOX ── */
+.essence-box{
+  text-align:center;padding:44px 28px;
+  border:1px solid var(--border);
+  margin:44px 0;
+  background:rgba(201,168,76,0.03);
+  position:relative;
+}
+.essence-box::before{
+  content:'ONE-LINE ESSENCE';
+  position:absolute;top:-9px;left:50%;
+  transform:translateX(-50%);
+  white-space:nowrap;
+  background:var(--bg);padding:0 14px;
+  font-family:'Raleway',sans-serif;
+  font-size:9px;letter-spacing:4px;
+  color:var(--gold);opacity:.7;
+  transition: background 0.35s ease;
+}
+.essence-txt{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(13px,2.2vw,18px);
+  color:var(--gold-lt);
+  line-height:1.7;
+}
+
+/* ── FW GRID ── */
+.fw-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:16px;margin:32px 0;
+}
+.fw-card{
+  border:1px solid var(--border);
+  padding:22px 18px;text-align:center;
+  background:rgba(201,168,76,0.03);
+}
+.fw-icon{font-size:26px;margin-bottom:10px;display:block;}
+.fw-title{
+  font-family:'Cinzel Decorative',serif;
+  font-size:11px;letter-spacing:2px;
+  color:var(--gold);margin-bottom:7px;
+}
+.fw-desc{font-size:13px;color:var(--muted);line-height:1.55;}
+
+/* ── SIGNS GRID ── */
+.signs-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:10px;margin:28px 0;
+}
+@media(max-width:560px){.signs-grid{grid-template-columns:repeat(2,1fr);}}
+.sign-pill-sm{
+  display:flex;align-items:center;gap:8px;
+  padding:11px 14px;
+  border:1px solid var(--border-wk);
+  background:var(--bg2);
+  transition: background 0.35s ease;
+}
+.sp-num{
+  font-family:'Cinzel Decorative',serif;
+  font-size:9px;color:var(--gold);opacity:.5;min-width:16px;
+}
+.sp-name{font-size:14px;color:var(--white);}
+.sp-ruler{font-size:12px;color:var(--muted);font-style:italic;margin-left:auto;}
+
+/* ── PLANETS LIST ── */
+.planets-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:14px;margin:24px 0;
+}
+.planet-item{
+  padding:14px 16px;
+  border-left:2px solid var(--gold);
+  background:rgba(201,168,76,0.03);
+}
+.planet-name{
+  font-family:'Cinzel Decorative',serif;
+  font-size:12px;color:var(--gold-lt);margin-bottom:5px;
+}
+.planet-theme{font-size:12px;color:var(--muted);line-height:1.5;}
+
+/* ── LAYERS BOX ── */
+.layers-box{
+  border:1px solid var(--border);
+  padding:32px;margin:32px 0;
+  background:rgba(201,168,76,0.03);
+  position:relative;
+}
+.layers-box::before{
+  content:'Four Layers';
+  position:absolute;top:-9px;left:28px;
+  background:var(--bg);padding:0 12px;
+  font-family:'Raleway',sans-serif;
+  font-size:9px;letter-spacing:4px;color:var(--gold);
+  transition: background 0.35s ease;
+}
+.layer-row{display:flex;gap:18px;align-items:flex-start;margin-bottom:22px;}
+.layer-row:last-child{margin-bottom:0;}
+.layer-num{
+  font-family:'Cinzel Decorative',serif;
+  font-size:26px;color:rgba(201,168,76,0.15);
+  min-width:38px;line-height:1;margin-top:2px;
+}
+.layer-title{
+  font-family:'Cinzel Decorative',serif;
+  font-size:12px;color:var(--gold);
+  margin-bottom:5px;letter-spacing:1px;
+}
+.layer-desc{font-size:14px;color:var(--white-dim);line-height:1.7;}
+
+/* ── STEPS ── */
+.steps{counter-reset:steps;margin:26px 0;}
+.step{counter-increment:steps;display:flex;gap:18px;margin-bottom:24px;align-items:flex-start;}
+.step::before{
+  content:counter(steps);
+  font-family:'Cinzel Decorative',serif;
+  font-size:18px;color:var(--gold);opacity:.45;min-width:28px;margin-top:2px;
+}
+.step-txt{font-size:15px;line-height:1.8;color:var(--white-dim);}
+.step-txt strong{color:var(--gold-lt);font-weight:600;}
+
+/* ── RASI TABLE ── */
+.rasi-table{
+  width:100%;border-collapse:collapse;
+  margin:28px 0;font-size:14px;
+}
+.rasi-table th{
+  font-family:'Raleway',sans-serif;
+  font-size:9px;letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--gold);
+  padding:12px 16px;text-align:left;
+  border-bottom:1px solid var(--border);
+  background:rgba(201,168,76,0.04);
+}
+.rasi-table td{
+  padding:11px 16px;
+  border-bottom:1px solid var(--border-wk);
+  color:var(--white-dim);
+}
+.rasi-table tr:hover td{background:rgba(201,168,76,0.04);}
+.rasi-sign{color:var(--gold-lt);font-style:italic;}
+
+/* ── MEMORY BOX ── */
+.memory-box{
+  border:1px solid var(--border);
+  margin:32px 0;
+  background:rgba(201,168,76,0.02);
+}
+.memory-row{
+  display:flex;align-items:baseline;gap:16px;
+  padding:11px 18px;
+  border-bottom:1px solid var(--border-wk);
+}
+.memory-row:last-child{border-bottom:none;}
+.mem-cat{
+  font-family:'Raleway',sans-serif;
+  font-size:9px;letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--gold);opacity:.6;
+  min-width:100px;flex-shrink:0;
+}
+.mem-val{font-size:14px;color:var(--white-dim);}
+
+/* ── PLANET HERO ── */
+.planet-hero{
+  text-align:center;
+  padding:64px 20px 40px;
+}
+.planet-symbol{
+  font-size:72px;line-height:1;
+  color:var(--gold);
+  text-shadow:0 0 40px rgba(201,168,76,0.3);
+  margin-bottom:14px;display:block;
+}
+.planet-name{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(28px,6vw,54px);
+  color:var(--gold-lt);
+  letter-spacing:3px;line-height:1;
+  margin-bottom:10px;
+}
+.planet-tag{
+  font-style:italic;font-weight:300;
+  font-size:clamp(14px,2vw,18px);
+  color:var(--muted);margin-bottom:22px;
+}
+.planet-intro{
+  font-size:clamp(15px,2vw,17px);
+  color:var(--white-dim);
+  max-width:640px;margin:0 auto;
+  line-height:1.9;
+}
+
+/* ── ENDING ── */
+.ending{
+  text-align:center;
+  padding:80px 20px 100px;
+}
+.ending-ring{
+  width:120px;height:120px;
+  border-radius:50%;
+  border:1px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 40px;
+  box-shadow:0 0 40px rgba(201,168,76,0.1);
+}
+.ending-icon{font-size:44px;color:var(--gold);}
+.ending-title{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(22px,4vw,36px);
+  color:var(--gold-lt);
+  margin-bottom:10px;
+}
+.ending-sub{
+  font-style:italic;color:var(--muted);
+  font-size:clamp(14px,2vw,17px);
+  margin-bottom:28px;
+}
+.ending-verse{
+  font-style:italic;font-weight:300;
+  font-size:clamp(16px,2.4vw,21px);
+  color:var(--white-dim);
+  line-height:2;
+  max-width:560px;margin:0 auto 28px;
+}
+.ending-note{
+  font-family:'Raleway',sans-serif;
+  font-size:9px;letter-spacing:5px;
+  text-transform:uppercase;
+  color:var(--gold);opacity:.5;
+}
+
+/* ── NEXT SIGN ── */
+.next-sign{
+  text-align:center;
+  padding:60px 20px;
+}
+.next-lbl{
+  font-family:'Raleway',sans-serif;
+  font-size:9px;letter-spacing:5px;
+  text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px;
+}
+.next-name{
+  font-family:'Cinzel Decorative',serif;
+  font-size:clamp(18px,3.5vw,28px);
+  color:var(--gold-lt);opacity:.5;
+}
+
+/* Tamil layers-box label override */
+[lang="ta"] .layers-box::before,
+.lang-panel-ta .layers-box::before {
+  content: 'நான்கு அடுக்குகள்';
+}
+[lang="ta"] .essence-box::before,
+.lang-panel-ta .essence-box::before {
+  content: 'ஒரே வரி சாரம்';
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     FLOATING CONTROLS
+══════════════════════════════════════ -->
+<div class="controls-bar">
+  <!-- Theme Toggle -->
+  <button class="ctrl-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle Theme">
+    <svg id="theme-icon-dark" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg id="theme-icon-light" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"/></svg>
+    <span id="theme-label">Light</span>
+  </button>
+  <!-- Language Toggle -->
+  <button class="ctrl-btn" id="lang-btn" onclick="toggleLang()" title="Switch Language">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+    <span id="lang-label">தமிழ்</span>
+  </button>
+</div>
+
+<div class="page">
+
+<!-- ══════════════════════════════════════
+     ENGLISH PANEL
+══════════════════════════════════════ -->
+<div class="lang-panel active" id="panel-en">
+
+
+<!-- ████████████████████████████████████████
+     PART 1 — INTRODUCTION
+████████████████████████████████████████ -->
+
+<div class="hero">
+  <div class="hero-ring"><span class="hero-icon">☸</span></div>
+  <div class="eyebrow">A Complete Reference Guide to KP Astrology Symbolism</div>
+  <h1 class="book-title">Rasi Tattva</h1>
+  <p class="book-sub">The Cosmic Index</p>
+  <p class="book-sub" style="font-size:clamp(13px,2vw,17px);margin-top:-30px;">Every Being, Object &amp; Force Under the Zodiac</p>
+  <div class="gdivider"><div class="gdivider-line"></div><div class="gdivider-dot"></div><div class="gdivider-line"></div></div>
+  <div class="eyebrow" style="margin-bottom:0;">Based on KP Astrology &amp; Vedic Tattva Shastra</div>
+</div>
+
+<!-- About -->
+<div class="section">
+  <div class="sec-label">About This Book</div>
+  <h2 class="sec-title">What Is Rasi Tattva?</h2>
+  <p class="body-text">Every sign of the zodiac is not merely a symbol on a chart — it is a living principle, a cosmic category that classifies all of existence: the beings that breathe, the objects that serve, the forces that move invisibly, and the instincts that drive action.</p>
+  <p class="body-text"><em>Rasi Tattva</em> is a comprehensive reference that maps all twelve zodiac signs — plus the planets Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Rahu, and Ketu — across four dimensions of reality. For each sign and planet, you will find what it represents in living beings, in non-living matter, in the boundary between the two, and in the purely abstract realm of forces and principles.</p>
+  <div class="italic-note">"The universe does not merely reflect the zodiac — the zodiac is the universe, categorized and named."</div>
+  <p class="body-text">This system is rooted in the ancient Vedic understanding that all creation falls within the domain of the twelve Rasis and the nine Grahas. A soldier and a sword, a fever and a furnace, courage and a cutting blade — all belong to Aries. A lotus and a lake, a mother's love and a cooking vessel — all belong to Cancer. When you understand which cosmic principle governs a thing, you begin to see the universe as a unified, intelligible whole.</p>
+</div>
+
+<!-- Purpose -->
+<div class="section">
+  <div class="sec-label">Why This Book</div>
+  <h2 class="sec-title">The Purpose of This Classification</h2>
+  <p class="body-text">Traditional astrology texts name planets and their qualities, but rarely explain <em>why</em> Mars rules both blood and iron, both a warrior and a forge, both anger and a surgeon's blade. The reason lies in Tattva — the essential principle underlying all forms. This book bridges that gap.</p>
+  <div class="fw-grid">
+    <div class="fw-card"><span class="fw-icon">🔭</span><div class="fw-title">KP Astrologers</div><div class="fw-desc">Deepen Karakatwa knowledge for accurate house &amp; planet interpretation</div></div>
+    <div class="fw-card"><span class="fw-icon">📚</span><div class="fw-title">Students</div><div class="fw-desc">Build a clear, structured foundation in Rasi symbolism from the ground up</div></div>
+    <div class="fw-card"><span class="fw-icon">🧘</span><div class="fw-title">Spiritual Seekers</div><div class="fw-desc">Understand how cosmic archetypes manifest in the world of matter and mind</div></div>
+    <div class="fw-card"><span class="fw-icon">🌿</span><div class="fw-title">Curious Minds</div><div class="fw-desc">Explore the hidden order beneath everyday objects, animals, and human roles</div></div>
+  </div>
+</div>
+
+<!-- Four Layers -->
+<div class="section">
+  <div class="sec-label">Book Structure</div>
+  <h2 class="sec-title">The Four-Layer Framework</h2>
+  <p class="body-text">Each sign and planet is explored through a consistent four-layer framework, revealing how a single cosmic principle expresses itself from the most physical to the most subtle dimensions of reality.</p>
+  <div class="layers-box">
+    <div class="layer-row"><div class="layer-num">I</div><div><div class="layer-title">Living Things</div><div class="layer-desc">Humans, animals, birds, insects, and plants that embody the sign's energy — soldiers for Aries, farmers for Taurus, scholars for Gemini.</div></div></div>
+    <div class="layer-row"><div class="layer-num">II</div><div><div class="layer-title">Non-Living Things</div><div class="layer-desc">Objects, tools, structures, and materials that carry the sign's nature — weapons for Aries, gold for Taurus, books for Gemini.</div></div></div>
+    <div class="layer-row"><div class="layer-num">III</div><div><div class="layer-title">Both Living &amp; Non-Living</div><div class="layer-desc">The transition zone — how living beings produce non-living objects, and how the sign governs that act of transformation and production.</div></div></div>
+    <div class="layer-row"><div class="layer-num">IV</div><div><div class="layer-title">Neither Living Nor Non-Living</div><div class="layer-desc">Abstract forces, psychological states, instincts, and invisible principles — the urge to act (Aries), desire for beauty (Taurus), flow of intelligence (Gemini).</div></div></div>
+  </div>
+</div>
+
+<!-- Contents -->
+<div class="section">
+  <div class="sec-label">Contents Overview</div>
+  <h2 class="sec-title">The Twelve Signs</h2>
+  <div class="signs-grid">
+    <div class="sign-pill-sm"><span class="sp-num">01</span><span class="sp-name">Aries</span><span class="sp-ruler">Mars</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">02</span><span class="sp-name">Taurus</span><span class="sp-ruler">Venus</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">03</span><span class="sp-name">Gemini</span><span class="sp-ruler">Mercury</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">04</span><span class="sp-name">Cancer</span><span class="sp-ruler">Moon</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">05</span><span class="sp-name">Leo</span><span class="sp-ruler">Sun</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">06</span><span class="sp-name">Virgo</span><span class="sp-ruler">Mercury</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">07</span><span class="sp-name">Libra</span><span class="sp-ruler">Venus</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">08</span><span class="sp-name">Scorpio</span><span class="sp-ruler">Mars</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">09</span><span class="sp-name">Sagittarius</span><span class="sp-ruler">Jupiter</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">10</span><span class="sp-name">Capricorn</span><span class="sp-ruler">Saturn</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">11</span><span class="sp-name">Aquarius</span><span class="sp-ruler">Saturn</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">12</span><span class="sp-name">Pisces</span><span class="sp-ruler">Jupiter</span></div>
+  </div>
+  <h2 class="sec-title" style="margin-top:40px;">The Nine Planets</h2>
+  <div class="planets-list">
+    <div class="planet-item"><div class="planet-name">Sun</div><div class="planet-theme">Soul · Authority · Vitality</div></div>
+    <div class="planet-item"><div class="planet-name">Moon</div><div class="planet-theme">Mind · Emotion · Nurturing</div></div>
+    <div class="planet-item"><div class="planet-name">Mercury</div><div class="planet-theme">Intellect · Communication · Trade</div></div>
+    <div class="planet-item"><div class="planet-name">Venus</div><div class="planet-theme">Beauty · Love · Pleasure</div></div>
+    <div class="planet-item"><div class="planet-name">Mars</div><div class="planet-theme">Energy · Courage · Action</div></div>
+    <div class="planet-item"><div class="planet-name">Jupiter</div><div class="planet-theme">Wisdom · Dharma · Expansion</div></div>
+    <div class="planet-item"><div class="planet-name">Saturn</div><div class="planet-theme">Time · Karma · Discipline</div></div>
+    <div class="planet-item"><div class="planet-name">Rahu</div><div class="planet-theme">Illusion · Obsession · Technology</div></div>
+    <div class="planet-item"><div class="planet-name">Ketu</div><div class="planet-theme">Detachment · Spirituality · Past</div></div>
+  </div>
+</div>
+
+<!-- How to Use -->
+<div class="section">
+  <div class="sec-label">Reader's Guide</div>
+  <h2 class="sec-title">How to Use This Book</h2>
+  <div class="steps">
+    <div class="step"><div class="step-txt"><strong>Start with Core Nature.</strong> Before exploring the four layers of any sign, read its fundamental qualities — element, ruling planet, direction, Varna, and body parts. This gives you the root of all that follows.</div></div>
+    <div class="step"><div class="step-txt"><strong>Follow the Tattva Summary.</strong> The eight-point summary (Life Force → Shadow) gives a rapid snapshot of how the sign operates across all dimensions. Memorize these to build fast intuition.</div></div>
+    <div class="step"><div class="step-txt"><strong>Use Layer IV for deep analysis.</strong> The "Neither Living Nor Non-Living" layer contains the invisible essence — the psychological force or principle that animates everything else. Most useful for natal chart and psychological interpretation.</div></div>
+    <div class="step"><div class="step-txt"><strong>Cross-reference signs with planets.</strong> Many themes appear in both a sign chapter and its ruler's planet chapter. Read both together — Aries + Mars creates the fullest picture of martial energy.</div></div>
+    <div class="step"><div class="step-txt"><strong>Apply to KP analysis.</strong> When analyzing a house, check both the sign occupying it and its lord's planet chapter. The overlap reveals the true, layered meaning of any planet-house-sign combination.</div></div>
+  </div>
+</div>
+
+<hr class="part-break">
+
+<!-- ████████████████████████████████████████
+     PART 2 — ARIES
+████████████████████████████████████████ -->
+
+<div class="sign-hero">
+  <div class="eyebrow">Rasi Tattva · Sign 01</div>
+  <span class="sign-symbol">♈</span>
+  <div class="sign-number">Movable · Fire · Ruled by Mars · Dharma Rasi</div>
+  <h2 class="sign-name">Aries</h2>
+  <p class="sign-tagline">Meesham — The Ram — The Spark Before Form</p>
+  <p class="sign-intro">A Movable Fire sign ruled by Mars. Aries represents energy, initiative, courage, leadership, action, warfare, speed, and raw power — especially tools and objects used to start, cut, strike, protect, or lead.</p>
+</div>
+
+<div class="section">
+  <div class="sec-label">Core Nature</div>
+  <h2 class="sec-title">Fundamental Qualities</h2>
+  <div class="core-grid">
+    <div class="core-cell"><div class="core-lbl">Rasi Type</div><div class="core-val">Movable Sign</div></div>
+    <div class="core-cell"><div class="core-lbl">Element</div><div class="core-val">Fire</div></div>
+    <div class="core-cell"><div class="core-lbl">Gender</div><div class="core-val">Male</div></div>
+    <div class="core-cell"><div class="core-lbl">Ruling Planet</div><div class="core-val">Mars</div></div>
+    <div class="core-cell"><div class="core-lbl">Direction</div><div class="core-val">East</div></div>
+    <div class="core-cell"><div class="core-lbl">Life Class</div><div class="core-val">Dharma Rasi</div></div>
+    <div class="core-cell"><div class="core-lbl">Varna</div><div class="core-val">Kshatriya</div></div>
+    <div class="core-cell"><div class="core-lbl">Body Parts</div><div class="core-val">Head · Face</div></div>
+    <div class="core-cell"><div class="core-lbl">Life-form</div><div class="core-val">Four-legged (Ram)</div></div>
+    <div class="core-cell"><div class="core-lbl">Symbol</div><div class="core-val">The Ram</div></div>
+  </div>
+  <div class="italic-note">Duty, righteousness, leadership, action aligned with purpose — Aries initiates the zodiacal cycle.</div>
+</div>
+
+<div class="section">
+  <div class="sec-label">Eight-Dimensional Tattva</div>
+  <h2 class="sec-title">Life Force to Shadow</h2>
+  <div class="tattva-grid">
+    <div class="tattva-card"><div class="tattva-lbl">Life Force</div><div class="tattva-val">Explosive, high-energy vitality</div></div>
+    <div class="tattva-card"><div class="tattva-lbl">Matter</div><div class="tattva-val">Weapons, metals, tools, machinery</div></div>
+    <div class="tattva-card"><div class="tattva-lbl">Fame</div><div class="tattva-val">Bravery, pioneering reputation</div></div>
+    <div class="tattva-card"><div class="tattva-lbl">Mind</div><div class="tattva-val">Quick thinking, impulsive decisions</div></div>
+    <div class="tattva-card"><div class="tattva-lbl">Action</div><div class="tattva-val">Immediate action, direct execution</div></div>
+    <div class="tattva-card"><div class="tattva-lbl">Purpose</div><div class="tattva-val">Initiation, leadership, victory through effort</div></div>
+    <div class="tattva-card"><div class="tattva-lbl">Time</div><div class="tattva-val">Fast results, short cycles</div></div>
+    <div class="tattva-card"><div class="tattva-lbl">Shadow</div><div class="tattva-val">Anger, impatience, recklessness</div></div>
+  </div>
+  <div class="cond-box">
+    <div class="cond-card weak"><div class="cond-lbl">If Mars is Weak</div><div class="cond-txt">Anger without achievement. Energy turns inward as frustration — action without direction.</div></div>
+    <div class="cond-card strong"><div class="cond-lbl">If Mars is Strong</div><div class="cond-txt">Leadership, conquest, fearlessness. The pioneer who breaks ground that others follow.</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">Layer I</div>
+  <h2 class="sec-title">Living Things</h2>
+  <p class="body-text">Fast, aggressive, territorial, fearless, action-first, combat-ready — they initiate, they do not wait.</p>
+  <div class="list-group"><div class="list-group-title">Humans</div><div class="items-grid">
+    <div class="item-tag">Soldiers, warriors, commandos</div>
+    <div class="item-tag">Police, guards, bouncers</div>
+    <div class="item-tag">Athletes, sprinters, fighters</div>
+    <div class="item-tag">Boxers, martial artists</div>
+    <div class="item-tag">Firefighters</div>
+    <div class="item-tag">Adventurers, mountaineers</div>
+    <div class="item-tag">Mechanics, metal workers</div>
+    <div class="item-tag">Construction workers</div>
+    <div class="item-tag">Pioneers, explorers</div>
+    <div class="item-tag">Aggressive leaders, initiators</div>
+    <div class="item-tag">Young males, high-energy youth</div>
+  </div></div>
+  <div class="list-group"><div class="list-group-title">Animals</div><div class="items-grid">
+    <div class="item-tag">Ram, goat (primary symbol)</div>
+    <div class="item-tag">Bull (when aggressive)</div>
+    <div class="item-tag">Horse (speed, power)</div>
+    <div class="item-tag">Guard dogs</div>
+    <div class="item-tag">Roosters (dominance, dawn)</div>
+    <div class="item-tag">Wild boar (attack nature)</div>
+    <div class="item-tag">Deer (sudden movement)</div>
+  </div></div>
+  <div class="list-group"><div class="list-group-title">Birds · Reptiles · Insects</div><div class="items-grid">
+    <div class="item-tag">Rooster</div>
+    <div class="item-tag">Eagle (attack &amp; dominance)</div>
+    <div class="item-tag">Venomous snakes</div>
+    <div class="item-tag">Scorpions</div>
+    <div class="item-tag">Bees, wasps (attack in groups)</div>
+    <div class="item-tag">Ants (aggressive workers)</div>
+  </div></div>
+  <div class="list-group"><div class="list-group-title">Plants &amp; Trees</div><div class="items-grid">
+    <div class="item-tag">Chili plants</div>
+    <div class="item-tag">Thorny plants, cacti</div>
+    <div class="item-tag">Plants with sharp spikes</div>
+    <div class="item-tag">Pepper, mustard (heat-producing)</div>
+    <div class="item-tag">Trees with hard wood or thorns</div>
+  </div></div>
+</div>
+
+<div class="section">
+  <div class="sec-label">Layer II</div>
+  <h2 class="sec-title">Non-Living Things</h2>
+  <p class="body-text">Aries objects are active, sharp, force-driven, and initiation-oriented. They act first.</p>
+  <div class="items-grid">
+    <div class="item-tag">Weapons — swords, knives, spears</div>
+    <div class="item-tag">Shields, protective gear</div>
+    <div class="item-tag">Hammer, axe, chisel</div>
+    <div class="item-tag">Fire sources — matches, furnaces</div>
+    <div class="item-tag">Arrows, javelins</div>
+    <div class="item-tag">Alarms, sirens</div>
+    <div class="item-tag">Gym equipment, weights</div>
+    <div class="item-tag">Fast vehicles, motorcycles, engines</div>
+    <div class="item-tag">Military equipment, helmets</div>
+    <div class="item-tag">Fire extinguishers</div>
+    <div class="item-tag">Cutting instruments — blades, saws</div>
+    <div class="item-tag">Starting flags, signal lights</div>
+    <div class="item-tag">Explosives, detonators</div>
+    <div class="item-tag">Ladders (upward initiative)</div>
+    <div class="item-tag">Construction tools — drills, breakers</div>
+    <div class="item-tag">Iron grills, steel structures</div>
+    <div class="item-tag">Commander's chair, leader's desk</div>
+    <div class="item-tag">Megaphones, announcement devices</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">Layer III</div>
+  <h2 class="sec-title">Both Living &amp; Non-Living — The Transition</h2>
+  <p class="body-text">Aries rules the transition from Life → Action → Object. Mars governs surgery (living → cutting tool), war (people → weapons), and engineering (idea → machine).</p>
+  <table class="trans-table">
+    <thead><tr><th>Living Being</th><th class="arr"></th><th>Produces / Becomes</th></tr></thead>
+    <tbody>
+      <tr><td>Soldier</td><td class="arr">↔</td><td>Weapon / Uniform</td></tr>
+      <tr><td>Athlete</td><td class="arr">↔</td><td>Sports equipment</td></tr>
+      <tr><td>Firefighter</td><td class="arr">↔</td><td>Fire tools</td></tr>
+      <tr><td>Mechanic</td><td class="arr">↔</td><td>Engine / Tools</td></tr>
+      <tr><td>Construction worker</td><td class="arr">↔</td><td>Machinery</td></tr>
+      <tr><td>Leader</td><td class="arr">↔</td><td>Throne / Command chair</td></tr>
+      <tr><td>Ram / Goat</td><td class="arr">↔</td><td>Leather, horns</td></tr>
+      <tr><td>Horse</td><td class="arr">↔</td><td>Saddle, carriage</td></tr>
+      <tr><td>Chili plant</td><td class="arr">↔</td><td>Dried chili powder, heat medicine</td></tr>
+      <tr><td>Iron ore (natural)</td><td class="arr">↔</td><td>Iron tools, steel weapons</td></tr>
+      <tr><td>Fire (living force)</td><td class="arr">↔</td><td>Lamp, furnace, engine (tool)</td></tr>
+      <tr><td>Muscle power</td><td class="arr">↔</td><td>Mechanical force</td></tr>
+    </tbody>
+  </table>
+  <div class="italic-note">Aries connects the living force to the non-living instrument.</div>
+</div>
+
+<div class="section">
+  <div class="sec-label">Layer IV — The Invisible Realm</div>
+  <h2 class="sec-title">Neither Living Nor Non-Living</h2>
+  <p class="body-text">Aries rules the spark before form — before a being acts, before a weapon is lifted, before fire is seen. That invisible push is Aries.</p>
+  <div class="force-section">
+    <div class="force-cat"><div class="force-cat-title">Energetic Forces</div><div class="force-pills"><span class="pill">Raw energy</span><span class="pill">Heat principle</span><span class="pill">Vital force surge</span><span class="pill">Adrenaline rush</span><span class="pill">Testosterone drive</span></div></div>
+    <div class="force-cat"><div class="force-cat-title">Instincts &amp; Impulses</div><div class="force-pills"><span class="pill">Fight instinct</span><span class="pill">Survival reflex</span><span class="pill">Attack response</span><span class="pill">Fearlessness impulse</span><span class="pill">Competitive urge</span></div></div>
+    <div class="force-cat"><div class="force-cat-title">Psychological States</div><div class="force-pills"><span class="pill">Courage</span><span class="pill">Anger</span><span class="pill">Aggression</span><span class="pill">Impulsiveness</span><span class="pill">Assertiveness</span><span class="pill">Willpower to act</span></div></div>
+    <div class="force-cat"><div class="force-cat-title">Functional Principles</div><div class="force-pills"><span class="pill">Initiative</span><span class="pill">First move</span><span class="pill">Action trigger</span><span class="pill">Leadership spark</span><span class="pill">Command impulse</span></div></div>
+    <div class="force-cat"><div class="force-cat-title">Time &amp; Motion</div><div class="force-pills"><span class="pill">Beginnings</span><span class="pill">Sudden events</span><span class="pill">Immediate reaction</span><span class="pill">Speed principle</span><span class="pill">Acceleration</span></div></div>
+    <div class="force-cat"><div class="force-cat-title">Conceptual Domains</div><div class="force-pills"><span class="pill">War as an idea</span><span class="pill">Conflict as a state</span><span class="pill">Challenge</span><span class="pill">Risk-taking</span><span class="pill">Victory drive</span></div></div>
+  </div>
+</div>
+
+<div class="essence-box"><div class="essence-txt">Aries governs the urge to act —<br>which is neither life nor matter.</div></div>
+
+<hr class="part-break">
+
+
+<!-- █████████ SAMPLE ENDING █████████ -->
+
+</div><!-- /panel-en -->
+
+<div class="ending">
+
+  <div class="ending-ring">
+    <span class="ending-icon">🔒</span>
+  </div>
+
+  <h2 class="ending-title">Sample Preview Ends Here</h2>
+
+  <p class="ending-sub">
+    You’ve just experienced Aries — the beginning of the cosmic journey.
+  </p>
+
+  <div class="gdivider">
+    <div class="gdivider-line"></div>
+    <div class="gdivider-dot"></div>
+    <div class="gdivider-line"></div>
+  </div>
+
+  <p class="ending-verse">
+    The remaining 11 Rasis continue this journey —<br>
+    revealing deeper patterns of life,<br>
+    matter, mind, time, and destiny.<br><br>
+    Each sign completes a part of the whole,<br>
+    and together they form the full map of existence.
+  </p>
+
+  <div class="gdivider">
+    <div class="gdivider-line"></div>
+    <div class="gdivider-dot"></div>
+    <div class="gdivider-line"></div>
+  </div>
+
+  <p class="body-text" style="max-width:560px;margin:0 auto 20px;text-align:center;">
+    This is only a preview. The complete knowledge of all 12 Rasis is available in the full version of <em>Rasi Tattva</em>.
+  </p>
+
+  <div class="ending-note">
+    🔒 Remaining 11 Rasi are locked
+  </div>
+
+  <!-- BUY BUTTON -->
+  <a href="YOUR_PAYMENT_LINK">
+    <button style="margin-top:20px; padding:12px 24px; font-size:16px; cursor:pointer;">
+      🔓 Unlock Full Book
+    </button>
+  </a>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     TAMIL PANEL
+══════════════════════════════════════ -->
+<div class="lang-panel lang-panel-ta" id="panel-ta">
+
+<!-- ████ பகுதி 1 — அறிமுகம் ████ -->
+
+<div class="hero">
+  <div class="hero-ring"><span class="hero-icon">☸</span></div>
+  <div class="eyebrow">KP ஜோதிட சின்னவியலின் முழுமையான குறிப்பு நூல்</div>
+  <h1 class="book-title">ராசி தத்துவம்</h1>
+  <p class="book-sub">பிரபஞ்ச வகைப்பேடு</p>
+  <p class="book-sub" style="font-size:clamp(13px,2vw,17px);margin-top:-30px;">ராசிமண்டலில் அடங்கும் உயிர், பொருள், சக்தி அனைத்தும்</p>
+  <div class="gdivider"><div class="gdivider-line"></div><div class="gdivider-dot"></div><div class="gdivider-line"></div></div>
+  <div class="eyebrow" style="margin-bottom:0;">KP ஜோதிடம் &amp; வேத தத்துவ சாஸ்திரம் அடிப்படையில்</div>
+</div>
+
+<div class="section">
+  <div class="sec-label">இந்த நூலைப் பற்றி</div>
+  <h2 class="sec-title">ராசி தத்துவம் என்றால் என்ன?</h2>
+  <p class="body-text">ஜோதிட ராசிகள் வெறும் வரைபட அடையாளங்கள் மட்டுமல்ல — அவை உயிர்ப்புள்ள கொள்கைகள், அனைத்து இருப்பையும் வகைப்படுத்தும் பிரபஞ்ச வகைகள்: சுவாசிக்கும் உயிரினங்கள், சேவை செய்யும் பொருட்கள், கண்ணுக்கு தெரியாமல் இயங்கும் சக்திகள், செயல்களை இயக்கும் உள்ளுணர்வுகள்.</p>
+  <p class="body-text"><em>ராசி தத்துவம்</em> என்பது பன்னிரண்டு ராசிகளையும் — சூரியன், சந்திரன், புதன், சுக்கிரன், செவ்வாய், குரு, சனி, ராகு, கேது ஆகிய கிரகங்களையும் — நான்கு பரிமாணங்களில் வரைபடமிடும் விரிவான குறிப்பு நூலாகும்.</p>
+  <div class="italic-note">"பிரபஞ்சம் ராசிகளை வெறுமனே பிரதிபலிக்கவில்லை — ராசிகளே பிரபஞ்சம், வகைப்படுத்தப்பட்டு பெயரிடப்பட்டது."</div>
+  <p class="body-text">இந்த முறை பன்னிரண்டு ராசிகள் மற்றும் ஒன்பது கிரகங்களின் ஆட்சியில் அனைத்து படைப்பும் அடங்கும் என்ற பழங்கால வேத புரிதலில் வேரூன்றியுள்ளது. ஒரு வீரனும் ஒரு வாளும், காய்ச்சலும் உலையும், தைரியமும் கத்தியும் — அனைத்தும் மேஷத்தை சேர்ந்தவை. தாமரையும் ஏரியும், தாயின் அன்பும் சமையல் பாத்திரமும் — அனைத்தும் கடகத்தை சேர்ந்தவை.</p>
+</div>
+
+<div class="section">
+  <div class="sec-label">இந்த நூல் ஏன்?</div>
+  <h2 class="sec-title">இந்த வகைப்பாட்டின் நோக்கம்</h2>
+  <p class="body-text">பாரம்பரிய ஜோதிட நூல்கள் கிரகங்களையும் அவற்றின் குணங்களையும் பட்டியலிடுகின்றன, ஆனால் செவ்வாய் <em>ஏன்</em> இரத்தத்தையும் இரும்பையும், வீரனையும் உலையையும், கோபத்தையும் அறுவை கத்தியையும் ஆளுகிறது என்று அரிதாகவே விளக்குகின்றன. காரணம் தத்துவத்தில் உள்ளது — அனைத்து வடிவங்களுக்கும் அடிப்படையான முக்கிய கொள்கை. இந்த நூல் அந்த இடைவெளியை நிரப்புகிறது.</p>
+  <div class="fw-grid">
+    <div class="fw-card"><span class="fw-icon">🔭</span><div class="fw-title">KP ஜோதிடர்கள்</div><div class="fw-desc">துல்லியமான பாவ &amp; கிரக விளக்கத்திற்கு காரகத்வ அறிவை ஆழப்படுத்துங்கள்</div></div>
+    <div class="fw-card"><span class="fw-icon">📚</span><div class="fw-title">மாணவர்கள்</div><div class="fw-desc">ராசி சின்னவியலில் தெளிவான, கட்டமைக்கப்பட்ட அடித்தளத்தை உருவாக்குங்கள்</div></div>
+    <div class="fw-card"><span class="fw-icon">🧘</span><div class="fw-title">ஆன்மீக தேடுபவர்கள்</div><div class="fw-desc">பிரபஞ்ச வார்ப்புகள் பொருள் மற்றும் மன உலகில் எவ்வாறு வெளிப்படுகின்றன என்பதை புரிந்துகொள்ளுங்கள்</div></div>
+    <div class="fw-card"><span class="fw-icon">🌿</span><div class="fw-title">ஆர்வமுள்ள மனங்கள்</div><div class="fw-desc">அன்றாட பொருட்கள், விலங்குகள், மனித பாத்திரங்களுக்கு அடியில் உள்ள மறைந்த ஒழுங்கை ஆராயுங்கள்</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">நூலின் அமைப்பு</div>
+  <h2 class="sec-title">நான்கு அடுக்கு கட்டமைப்பு</h2>
+  <p class="body-text">ஒவ்வொரு ராசியும் கிரகமும் ஒரு நிலையான நான்கு அடுக்கு கட்டமைப்பு மூலம் ஆராயப்படுகின்றன, ஒரு பிரபஞ்ச கொள்கை மிகவும் உடல் நிலையிலிருந்து மிகவும் நுண்ணிய பரிமாணம் வரை எவ்வாறு வெளிப்படுகிறது என்பதை வெளிப்படுத்துகிறது.</p>
+  <div class="layers-box">
+    <div class="layer-row"><div class="layer-num">I</div><div><div class="layer-title">உயிர்உள்ள பொருட்கள்</div><div class="layer-desc">ராசியின் சக்தியை உள்ளடக்கிய மனிதர்கள், விலங்குகள், பறவைகள், பூச்சிகள், தாவரங்கள் — மேஷத்திற்கு வீரர்கள், ரிஷபத்திற்கு விவசாயிகள், மிதுனத்திற்கு அறிஞர்கள்.</div></div></div>
+    <div class="layer-row"><div class="layer-num">II</div><div><div class="layer-title">உயிரற்ற பொருட்கள்</div><div class="layer-desc">ராசியின் இயல்பை சுமக்கும் பொருட்கள், கருவிகள், கட்டமைப்புகள் — மேஷத்திற்கு ஆயுதங்கள், ரிஷபத்திற்கு தங்கம், மிதுனத்திற்கு புத்தகங்கள்.</div></div></div>
+    <div class="layer-row"><div class="layer-num">III</div><div><div class="layer-title">உயிருள்ளவை &amp; உயிரற்றவை இரண்டும்</div><div class="layer-desc">மாற்ற மண்டலம் — உயிரினங்கள் உயிரற்ற பொருட்களை எவ்வாறு உற்பத்தி செய்கின்றன, மற்றும் அந்த மாற்றத்தை ராசி எவ்வாறு ஆள்கிறது.</div></div></div>
+    <div class="layer-row"><div class="layer-num">IV</div><div><div class="layer-title">உயிருள்ளதும் இல்லை, உயிரற்றதும் இல்லை</div><div class="layer-desc">சூட்சும சக்திகள், உளவியல் நிலைகள், உள்ளுணர்வுகள் — செயல்படும் உந்துதல் (மேஷம்), அழகின் விருப்பம் (ரிஷபம்), அறிவின் ஓட்டம் (மிதுனம்).</div></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">உள்ளடக்க கண்ணோட்டம்</div>
+  <h2 class="sec-title">பன்னிரண்டு ராசிகள்</h2>
+  <div class="signs-grid">
+    <div class="sign-pill-sm"><span class="sp-num">01</span><span class="sp-name">மேஷம்</span><span class="sp-ruler">செவ்வாய்</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">02</span><span class="sp-name">ரிஷபம்</span><span class="sp-ruler">சுக்கிரன்</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">03</span><span class="sp-name">மிதுனம்</span><span class="sp-ruler">புதன்</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">04</span><span class="sp-name">கடகம்</span><span class="sp-ruler">சந்திரன்</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">05</span><span class="sp-name">சிம்மம்</span><span class="sp-ruler">சூரியன்</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">06</span><span class="sp-name">கன்னி</span><span class="sp-ruler">புதன்</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">07</span><span class="sp-name">துலாம்</span><span class="sp-ruler">சுக்கிரன்</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">08</span><span class="sp-name">விருச்சிகம்</span><span class="sp-ruler">செவ்வாய்</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">09</span><span class="sp-name">தனுசு</span><span class="sp-ruler">குரு</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">10</span><span class="sp-name">மகரம்</span><span class="sp-ruler">சனி</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">11</span><span class="sp-name">கும்பம்</span><span class="sp-ruler">சனி</span></div>
+    <div class="sign-pill-sm"><span class="sp-num">12</span><span class="sp-name">மீனம்</span><span class="sp-ruler">குரு</span></div>
+  </div>
+  <h2 class="sec-title" style="margin-top:40px;">ஒன்பது கிரகங்கள்</h2>
+  <div class="planets-list">
+    <div class="planet-item"><div class="planet-name">சூரியன்</div><div class="planet-theme">ஆத்மா · அதிகாரம் · உயிர்ச்சக்தி</div></div>
+    <div class="planet-item"><div class="planet-name">சந்திரன்</div><div class="planet-theme">மனம் · உணர்வு · வளர்ப்பு</div></div>
+    <div class="planet-item"><div class="planet-name">புதன்</div><div class="planet-theme">அறிவு · தொடர்பு · வர்த்தகம்</div></div>
+    <div class="planet-item"><div class="planet-name">சுக்கிரன்</div><div class="planet-theme">அழகு · அன்பு · இன்பம்</div></div>
+    <div class="planet-item"><div class="planet-name">செவ்வாய்</div><div class="planet-theme">சக்தி · தைரியம் · செயல்</div></div>
+    <div class="planet-item"><div class="planet-name">குரு</div><div class="planet-theme">ஞானம் · தர்மம் · விரிவாக்கம்</div></div>
+    <div class="planet-item"><div class="planet-name">சனி</div><div class="planet-theme">காலம் · கர்மா · ஒழுக்கம்</div></div>
+    <div class="planet-item"><div class="planet-name">ராகு</div><div class="planet-theme">மாயை · ஆட்கொள்ளல் · தொழில்நுட்பம்</div></div>
+    <div class="planet-item"><div class="planet-name">கேது</div><div class="planet-theme">பற்றின்மை · ஆன்மீகம் · கடந்தகாலம்</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">வாசகர் வழிகாட்டி</div>
+  <h2 class="sec-title">இந்த நூலை எவ்வாறு பயன்படுத்துவது</h2>
+  <div class="steps">
+    <div class="step"><div class="step-txt"><strong>மூல இயல்பில் தொடங்குங்கள்.</strong> எந்த ராசியின் நான்கு அடுக்குகளையும் ஆராய்வதற்கு முன், அதன் அடிப்படை குணங்களைப் படியுங்கள் — தத்துவம், ஆட்சி கிரகம், திசை, வர்ணம், உடல் உறுப்புகள்.</div></div>
+    <div class="step"><div class="step-txt"><strong>தத்துவ சுருக்கத்தை பின்பற்றுங்கள்.</strong> எட்டு புள்ளி சுருக்கம் (உயிர் சக்தி → நிழல்) ராசி அனைத்து பரிமாணங்களிலும் எவ்வாறு செயல்படுகிறது என்பதன் விரைவான பார்வையை தருகிறது.</div></div>
+    <div class="step"><div class="step-txt"><strong>ஆழமான பகுப்பாய்விற்கு அடுக்கு IV ஐ பயன்படுத்துங்கள்.</strong> கண்ணுக்கு தெரியாத சாரம் — அனைத்தையும் உயிர்ப்பிக்கும் உளவியல் சக்தி — இங்கே உள்ளது.</div></div>
+    <div class="step"><div class="step-txt"><strong>ராசிகளை கிரகங்களுடன் குறுக்கு சரிபாருங்கள்.</strong> மேஷம் + செவ்வாய் — இரண்டையும் சேர்த்து படியுங்கள். போர் சக்தியின் முழுமையான படம் கிடைக்கும்.</div></div>
+    <div class="step"><div class="step-txt"><strong>KP பகுப்பாய்விற்கு பயன்படுத்துங்கள்.</strong> ஒரு பாவத்தை பகுப்பாய்வு செய்யும்போது, அதை ஆக்கிரமிக்கும் ராசியையும் அதன் அதிபதியின் கிரக அத்தியாயத்தையும் சரிபாருங்கள்.</div></div>
+  </div>
+</div>
+
+<hr class="part-break">
+
+<!-- ████ பகுதி 2 — மேஷம் ████ -->
+
+<div class="sign-hero">
+  <div class="eyebrow">ராசி தத்துவம் · ராசி 01</div>
+  <span class="sign-symbol">♈</span>
+  <div class="sign-number">சரம் · அக்னி · செவ்வாய் ஆட்சி · தர்ம ராசி</div>
+  <h2 class="sign-name">மேஷம்</h2>
+  <p class="sign-tagline">மேஷம் — ஆட்டுக்கிடா — வடிவத்திற்கு முந்தைய தீப்பொறி</p>
+  <p class="sign-intro">செவ்வாய் ஆட்சி செய்யும் சர அக்னி ராசி. மேஷம் சக்தி, முயற்சி, தைரியம், தலைமை, செயல், போர், வேகம் மற்றும் கட்டுறா வலிமையை குறிக்கிறது — குறிப்பாக தொடங்க, வெட்ட, தாக்க, பாதுகாக்க அல்லது வழிநடத்த பயன்படும் கருவிகள் மற்றும் பொருட்கள்.</p>
+</div>
+
+<div class="section">
+  <div class="sec-label">மூல இயல்பு</div>
+  <h2 class="sec-title">அடிப்படை குணங்கள்</h2>
+  <div class="core-grid">
+    <div class="core-cell"><div class="core-lbl">ராசி வகை</div><div class="core-val">சர ராசி</div></div>
+    <div class="core-cell"><div class="core-lbl">தத்துவம்</div><div class="core-val">அக்னி</div></div>
+    <div class="core-cell"><div class="core-lbl">பால்</div><div class="core-val">ஆண்</div></div>
+    <div class="core-cell"><div class="core-lbl">ஆட்சி கிரகம்</div><div class="core-val">செவ்வாய்</div></div>
+    <div class="core-cell"><div class="core-lbl">திசை</div><div class="core-val">கிழக்கு</div></div>
+    <div class="core-cell"><div class="core-lbl">வாழ்க்கை வகை</div><div class="core-val">தர்ம ராசி</div></div>
+    <div class="core-cell"><div class="core-lbl">வர்ணம்</div><div class="core-val">க்ஷத்திரியர்</div></div>
+    <div class="core-cell"><div class="core-lbl">உடல் உறுப்புகள்</div><div class="core-val">தலை · முகம்</div></div>
+    <div class="core-cell"><div class="core-lbl">உயிர் வடிவம்</div><div class="core-val">நான்கு கால் (ஆட்டுக்கிடா)</div></div>
+    <div class="core-cell"><div class="core-lbl">சின்னம்</div><div class="core-val">ஆட்டுக்கிடா</div></div>
+  </div>
+  <div class="italic-note">கடமை, நீதி, தலைமை, நோக்கத்துடன் இணைந்த செயல் — மேஷம் ராசி சக்கரத்தை தொடங்குகிறது.</div>
+</div>
+
+<div class="section">
+  <div class="sec-label">எட்டு பரிமாண தத்துவம்</div>
+  <h2 class="sec-title">உயிர் சக்தியிலிருந்து நிழல் வரை</h2>
+  <div class="tattva-grid">
+    <div class="tattva-card"><div class="tattva-lbl">உயிர் சக்தி</div><div class="tattva-val">வெடிக்கும், உயர் சக்தி உயிர்ச்சக்தி</div></div>
+    <div class="tattva-card"><div class="tattva-lbl">பொருள்</div><div class="tattva-val">ஆயுதங்கள், உலோகங்கள், கருவிகள், இயந்திரங்கள்</div></div>
+    <div class="tattva-card"><div class="tattva-lbl">புகழ்</div><div class="tattva-val">தைரியம், முன்னோடி புகழ்</div></div>
+    <div class="tattva-card"><div class="tattva-lbl">மனம்</div><div class="tattva-val">விரைவான சிந்தனை, உந்துதலால் எடுக்கும் முடிவுகள்</div></div>
+    <div class="tattva-card"><div class="tattva-lbl">செயல்</div><div class="tattva-val">உடனடி செயல், நேரடி செயல்படுத்தல்</div></div>
+    <div class="tattva-card"><div class="tattva-lbl">நோக்கம்</div><div class="tattva-val">தொடக்கம், தலைமை, முயற்சியால் வெற்றி</div></div>
+    <div class="tattva-card"><div class="tattva-lbl">காலம்</div><div class="tattva-val">விரைவான முடிவுகள், குறுகிய சுழற்சிகள்</div></div>
+    <div class="tattva-card"><div class="tattva-lbl">நிழல்</div><div class="tattva-val">கோபம், பொறுமையின்மை, பொறுப்பற்ற தன்மை</div></div>
+  </div>
+  <div class="cond-box">
+    <div class="cond-card weak"><div class="cond-lbl">செவ்வாய் பலவீனமாக இருந்தால்</div><div class="cond-txt">சாதனையில்லாத கோபம். சக்தி விரக்தியாக உள்முகமாக திரும்புகிறது — திசையில்லாத செயல்.</div></div>
+    <div class="cond-card strong"><div class="cond-lbl">செவ்வாய் வலிமையாக இருந்தால்</div><div class="cond-txt">தலைமை, வெற்றி, அச்சமின்மை. மற்றவர்கள் பின்பற்றும் தரையை உடைக்கும் முன்னோடி.</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">அடுக்கு I</div>
+  <h2 class="sec-title">உயிர்உள்ள பொருட்கள்</h2>
+  <p class="body-text">விரைவான, ஆக்ரோஷமான, பிரதேச உணர்வுள்ள, அச்சமற்ற, செயல் முதல், போர் தயார் — அவர்கள் தொடங்குகிறார்கள், காத்திருக்கவில்லை.</p>
+  <div class="list-group"><div class="list-group-title">மனிதர்கள்</div><div class="items-grid">
+    <div class="item-tag">வீரர்கள், போர்வீரர்கள், கமாண்டோக்கள்</div>
+    <div class="item-tag">காவல்துறை, காவலர்கள், பாதுகாவலர்கள்</div>
+    <div class="item-tag">விளையாட்டு வீரர்கள், ஓட்டப்பந்தய வீரர்கள்</div>
+    <div class="item-tag">குத்துச்சண்டை வீரர்கள், தற்காப்பு கலை வல்லுநர்கள்</div>
+    <div class="item-tag">தீயணைப்பு வீரர்கள்</div>
+    <div class="item-tag">சாகச வீரர்கள், மலை ஏறுவோர்</div>
+    <div class="item-tag">இயந்திர பழுது பார்ப்போர், உலோக வேலையாளர்கள்</div>
+    <div class="item-tag">கட்டுமான தொழிலாளர்கள்</div>
+    <div class="item-tag">முன்னோடிகள், ஆய்வாளர்கள்</div>
+    <div class="item-tag">ஆக்ரோஷமான தலைவர்கள், தொடங்குவோர்</div>
+    <div class="item-tag">இளம் ஆண்கள், உயர் சக்தி இளைஞர்கள்</div>
+  </div></div>
+  <div class="list-group"><div class="list-group-title">விலங்குகள்</div><div class="items-grid">
+    <div class="item-tag">ஆட்டுக்கிடா, வெள்ளாடு (முதன்மை சின்னம்)</div>
+    <div class="item-tag">காளை (ஆக்ரோஷமாக இருக்கும்போது)</div>
+    <div class="item-tag">குதிரை (வேகம், வலிமை)</div>
+    <div class="item-tag">காவல் நாய்கள்</div>
+    <div class="item-tag">சேவல்கள் (ஆதிக்கம், விடியல்)</div>
+    <div class="item-tag">காட்டுப்பன்றி (தாக்கும் இயல்பு)</div>
+    <div class="item-tag">மான் (திடீர் அசைவு)</div>
+  </div></div>
+  <div class="list-group"><div class="list-group-title">பறவைகள் · ஊர்வன · பூச்சிகள்</div><div class="items-grid">
+    <div class="item-tag">சேவல்</div>
+    <div class="item-tag">கழுகு (தாக்குதல் &amp; ஆதிக்கம்)</div>
+    <div class="item-tag">விஷமுள்ள பாம்புகள்</div>
+    <div class="item-tag">தேள்கள்</div>
+    <div class="item-tag">தேனீக்கள், குளவிகள் (கூட்டமாக தாக்குதல்)</div>
+    <div class="item-tag">எறும்புகள் (ஆக்ரோஷமான உழைப்பாளிகள்)</div>
+  </div></div>
+  <div class="list-group"><div class="list-group-title">தாவரங்கள் &amp; மரங்கள்</div><div class="items-grid">
+    <div class="item-tag">மிளகாய் செடிகள்</div>
+    <div class="item-tag">முட்புதர்கள், கள்ளிச்செடிகள்</div>
+    <div class="item-tag">கூர்மையான முட்களுள்ள தாவரங்கள்</div>
+    <div class="item-tag">மிளகு, கடுகு (வெப்பம் உற்பத்தி செய்யும்)</div>
+    <div class="item-tag">கடினமான மரம் அல்லது முட்களுள்ள மரங்கள்</div>
+  </div></div>
+</div>
+
+<div class="section">
+  <div class="sec-label">அடுக்கு II</div>
+  <h2 class="sec-title">உயிரற்ட பொருட்கள்</h2>
+  <p class="body-text">மேஷ பொருட்கள் சுறுசுறுப்பானவை, கூர்மையானவை, சக்தி இயக்கப்படுபவை. அவை முதலில் செயல்படுகின்றன.</p>
+  <div class="items-grid">
+    <div class="item-tag">ஆயுதங்கள் — வாள்கள், கத்திகள், ஈட்டிகள்</div>
+    <div class="item-tag">கேடயங்கள், பாதுகாப்பு உபகரணங்கள்</div>
+    <div class="item-tag">சுத்தியல், கோடரி, உளி</div>
+    <div class="item-tag">தீ மூலங்கள் — தீக்குச்சிகள், உலைகள்</div>
+    <div class="item-tag">அம்புகள், ஈட்டிகள்</div>
+    <div class="item-tag">எச்சரிக்கை மணிகள், சைரன்கள்</div>
+    <div class="item-tag">உடற்பயிற்சி உபகரணங்கள், எடைகள்</div>
+    <div class="item-tag">வேகமான வாகனங்கள், மோட்டார் சைக்கிள்கள்</div>
+    <div class="item-tag">இராணுவ உபகரணங்கள், தலைக்கவசங்கள்</div>
+    <div class="item-tag">தீயணைப்பு கருவிகள்</div>
+    <div class="item-tag">வெட்டும் கருவிகள் — கத்திகள், வாள்கள்</div>
+    <div class="item-tag">தொடக்க கொடிகள், சமிக்கை விளக்குகள்</div>
+    <div class="item-tag">வெடிமருந்துகள், தொடுசாதனங்கள்</div>
+    <div class="item-tag">ஏணிகள் (மேல்நோக்கிய முயற்சி)</div>
+    <div class="item-tag">கட்டுமான கருவிகள் — துளையிடும் கருவிகள்</div>
+    <div class="item-tag">இரும்பு கம்பிகள், எஃகு கட்டமைப்புகள்</div>
+    <div class="item-tag">தளபதியின் நாற்காலி, தலைவரின் மேஜை</div>
+    <div class="item-tag">ஒலிவலைகள், அறிவிப்பு சாதனங்கள்</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-label">அடுக்கு III</div>
+  <h2 class="sec-title">உயிருள்ளவை &amp; உயிரற்றவை — மாற்றம்</h2>
+  <p class="body-text">மேஷம் உயிர் → செயல் → பொருள் என்ற மாற்றத்தை ஆள்கிறது. செவ்வாய் அறுவை சிகிச்சை (உயிர் → வெட்டும் கருவி), போர் (மனிதர்கள் → ஆயுதங்கள்), பொறியியல் (யோசனை → இயந்திரம்) ஆகியவற்றை ஆள்கிறது.</p>
+  <table class="trans-table">
+    <thead><tr><th>உயிரினம்</th><th class="arr"></th><th>உற்பத்தி செய்கிறது / ஆகிறது</th></tr></thead>
+    <tbody>
+      <tr><td>வீரன்</td><td class="arr">↔</td><td>ஆயுதம் / சீருடை</td></tr>
+      <tr><td>விளையாட்டு வீரர்</td><td class="arr">↔</td><td>விளையாட்டு உபகரணங்கள்</td></tr>
+      <tr><td>தீயணைப்பு வீரன்</td><td class="arr">↔</td><td>தீ கருவிகள்</td></tr>
+      <tr><td>இயந்திர பழுது பார்ப்போர்</td><td class="arr">↔</td><td>என்ஜின் / கருவிகள்</td></tr>
+      <tr><td>கட்டுமான தொழிலாளர்</td><td class="arr">↔</td><td>இயந்திரங்கள்</td></tr>
+      <tr><td>தலைவர்</td><td class="arr">↔</td><td>சிம்மாசனம் / ஆணை நாற்காலி</td></tr>
+      <tr><td>ஆட்டுக்கிடா / வெள்ளாடு</td><td class="arr">↔</td><td>தோல், கொம்புகள்</td></tr>
+      <tr><td>குதிரை</td><td class="arr">↔</td><td>சேணம், தேர்</td></tr>
+      <tr><td>மிளகாய் செடி</td><td class="arr">↔</td><td>உலர்ந்த மிளகாய் தூள், வெப்ப மருந்து</td></tr>
+      <tr><td>இரும்பு தாது (இயற்கை)</td><td class="arr">↔</td><td>இரும்பு கருவிகள், எஃகு ஆயுதங்கள்</td></tr>
+      <tr><td>தீ (உயிர் சக்தி)</td><td class="arr">↔</td><td>விளக்கு, உலை, என்ஜின் (கருவி)</td></tr>
+      <tr><td>தசை வலிமை</td><td class="arr">↔</td><td>இயந்திர சக்தி</td></tr>
+    </tbody>
+  </table>
+  <div class="italic-note">மேஷம் உயிர் சக்தியை உயிரற்ட கருவியுடன் இணைக்கிறது.</div>
+</div>
+
+<div class="section">
+  <div class="sec-label">அடுக்கு IV — கண்ணுக்கு தெரியாத உலகம்</div>
+  <h2 class="sec-title">உயிருள்ளதும் இல்லை, உயிரற்றதும் இல்லை</h2>
+  <p class="body-text">மேஷம் வடிவத்திற்கு முந்தைய தீப்பொறியை ஆள்கிறது — ஒரு உயிரினம் செயல்படுவதற்கு முன், ஒரு ஆயுதம் தூக்கப்படுவதற்கு முன், தீ தெரிவதற்கு முன். அந்த கண்ணுக்கு தெரியாத தள்ளுதலே மேஷம்.</p>
+  <div class="force-section">
+    <div class="force-cat"><div class="force-cat-title">சக்தி சக்திகள்</div><div class="force-pills"><span class="pill">கட்டுறா சக்தி</span><span class="pill">வெப்பக் கொள்கை</span><span class="pill">உயிர் சக்தி அலை</span><span class="pill">அட்ரினலின் உணர்வு</span><span class="pill">டெஸ்டோஸ்டிரோன் உந்துதல்</span></div></div>
+    <div class="force-cat"><div class="force-cat-title">உள்ளுணர்வுகள் &amp; உந்துதல்கள்</div><div class="force-pills"><span class="pill">சண்டை உள்ளுணர்வு</span><span class="pill">உயிர்வாழல் எதிர்வினை</span><span class="pill">தாக்குதல் பதில்</span><span class="pill">அச்சமின்மை உந்துதல்</span><span class="pill">போட்டி உணர்வு</span></div></div>
+    <div class="force-cat"><div class="force-cat-title">உளவியல் நிலைகள்</div><div class="force-pills"><span class="pill">தைரியம்</span><span class="pill">கோபம்</span><span class="pill">ஆக்ரோஷம்</span><span class="pill">உந்துதல் தன்மை</span><span class="pill">உறுதியான தன்மை</span><span class="pill">செயல்படும் உறுதி</span></div></div>
+    <div class="force-cat"><div class="force-cat-title">செயல்பாட்டு கொள்கைகள்</div><div class="force-pills"><span class="pill">முயற்சி</span><span class="pill">முதல் நகர்வு</span><span class="pill">செயல் தூண்டுதல்</span><span class="pill">தலைமை தீப்பொறி</span><span class="pill">ஆணை உந்துதல்</span></div></div>
+    <div class="force-cat"><div class="force-cat-title">காலம் &amp; இயக்கம்</div><div class="force-pills"><span class="pill">தொடக்கங்கள்</span><span class="pill">திடீர் நிகழ்வுகள்</span><span class="pill">உடனடி எதிர்வினை</span><span class="pill">வேகக் கொள்கை</span><span class="pill">முடுக்கம்</span></div></div>
+    <div class="force-cat"><div class="force-cat-title">கருத்தியல் துறைகள்</div><div class="force-pills"><span class="pill">யோசனையாக போர்</span><span class="pill">நிலையாக மோதல்</span><span class="pill">சவால்</span><span class="pill">ஆபத்து எடுத்தல்</span><span class="pill">வெற்றி உந்துதல்</span></div></div>
+  </div>
+</div>
+
+<div class="essence-box"><div class="essence-txt">மேஷம் செயல்படும் உந்துதலை ஆள்கிறது —<br>அது உயிரும் இல்லை, பொருளும் இல்லை.</div></div>
+
+<hr class="part-break">
+
+
+<hr class="part-break">
+
+<!-- முடிவு -->
+<div class="ending">
+  <div class="ending-ring"><span class="ending-icon">☸</span></div>
+
+  <h2 class="ending-title">வகைப்படுத்தப்பட்ட பிரபஞ்சம்</h2>
+  <p class="ending-sub">ஆட்டுக்கிடாவின் முதல் தீயிலிருந்து மீனத்தின் இறுதி சரணடைதல் வரை</p>
+
+  <div class="gdivider"><div class="gdivider-line"></div><div class="gdivider-dot"></div><div class="gdivider-line"></div></div>
+
+  <p class="ending-verse">
+    ஒவ்வொரு வீரனும் ஒவ்வொரு வாளும்,<br>
+    ஒவ்வொரு அம்மாவும் ஒவ்வொரு உணவும்,<br>
+    செயலுக்கு முந்தைய ஒவ்வொரு சிந்தனையும்<br>
+    தூக்கத்திற்கு பின்னான ஒவ்வொரு கனவும் —<br>
+    அனைத்தும் ஒரு ராசியை சேர்ந்தவை,<br>
+    அனைத்தும் ஒரு கிரகத்திற்கு கட்டுப்படுகின்றன,<br>
+    அனைத்தும் சிறு பிரபஞ்சத்தில் பெரும் பிரபஞ்சத்தை வெளிப்படுத்துகின்றன.
+  </p>
+
+<!-- █████████ SAMPLE ENDING (TAMIL) █████████ -->
+
+</div><!-- /lang-panel-ta -->
+
+<div class="ending">
+
+  <div class="ending-ring">
+    <span class="ending-icon">🔒</span>
+  </div>
+
+  <h2 class="ending-title">இங்கு மாதிரி முடிகிறது</h2>
+
+  <p class="ending-sub">
+    நீங்கள் மேஷம் ராசியின் ஆரம்பத்தை அனுபவித்துள்ளீர்கள்.
+  </p>
+
+  <div class="gdivider">
+    <div class="gdivider-line"></div>
+    <div class="gdivider-dot"></div>
+    <div class="gdivider-line"></div>
+  </div>
+
+  <p class="ending-verse">
+    மீதமுள்ள 11 ராசிகள் இந்த பயணத்தை தொடர்கின்றன —<br>
+    வாழ்க்கை, மனம், காலம் மற்றும் விதியின் ஆழமான உண்மைகளை வெளிப்படுத்துகின்றன.<br><br>
+    ஒவ்வொரு ராசியும் முழுமையின் ஒரு பகுதி,<br>
+    அனைத்தும் சேர்ந்து இருப்பின் முழு வரைபடமாகும்.
+  </p>
+
+  <div class="gdivider">
+    <div class="gdivider-line"></div>
+    <div class="gdivider-dot"></div>
+    <div class="gdivider-line"></div>
+  </div>
+
+  <p class="body-text" style="max-width:560px;margin:0 auto 20px;text-align:center;">
+    இது ஒரு மாதிரி மட்டும். முழு 12 ராசிகளின் அறிவு <em>ராசி தத்துவம்</em> முழு பதிப்பில் கிடைக்கும்.
+  </p>
+
+  <div class="ending-note">
+    🔒 மீதமுள்ள 11 ராசிகள் பூட்டப்பட்டுள்ளன
+  </div>
+
+  <!-- BUY BUTTON -->
+  <a href="YOUR_PAYMENT_LINK">
+    <button style="margin-top:20px; padding:12px 24px; font-size:16px; cursor:pointer;">
+      🔓 முழு புத்தகத்தை திறக்க
+    </button>
+  </a>
+
+</div>
