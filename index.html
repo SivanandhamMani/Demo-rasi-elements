@@ -6,9 +6,6 @@
 <title>Rasi Tattva — The Cosmic Index / ராசி தத்துவம் — பிரபஞ்ச வகைப்பேடு</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════════
-   DARK THEME (default)
-═══════════════════════════════════════════ */
 :root {
   --bg:        #0a0a0a;
   --bg2:       #111111;
@@ -25,10 +22,6 @@
   --toggle-border: rgba(201,168,76,0.3);
   --toggle-shadow: 0 4px 24px rgba(0,0,0,0.5);
 }
-
-/* ═══════════════════════════════════════════
-   LIGHT THEME
-═══════════════════════════════════════════ */
 [data-theme="light"] {
   --bg:        #faf7f2;
   --bg2:       #f2ede4;
@@ -45,624 +38,129 @@
   --toggle-border: rgba(154,110,30,0.3);
   --toggle-shadow: 0 4px 24px rgba(0,0,0,0.12);
 }
-
 *{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-  background:var(--bg);
-  color:var(--white);
-  font-family:'Cormorant Garamond',Georgia,serif;
-  line-height:1.7;
-  transition: background 0.35s ease, color 0.35s ease;
-}
-
-/* ── FLOATING CONTROLS ── */
-.controls-bar {
-  position: fixed;
-  top: 18px;
-  right: 18px;
-  z-index: 1000;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.ctrl-btn {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 8px 16px;
-  background: var(--toggle-bg);
-  border: 1px solid var(--toggle-border);
-  color: var(--gold);
-  font-family: 'Raleway', sans-serif;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  box-shadow: var(--toggle-shadow);
-  transition: all 0.25s ease;
-  backdrop-filter: blur(8px);
-}
-.ctrl-btn:hover {
-  background: var(--gold);
-  color: var(--bg);
-  border-color: var(--gold);
-}
-.ctrl-btn svg {
-  width: 14px; height: 14px;
-  fill: currentColor;
-  flex-shrink: 0;
-}
-
-/* ── PAGE WRAPPER ── */
-.page{
-  max-width:860px;
-  margin:0 auto;
-  padding:24px 20px;
-}
-
-/* Language panels */
-.lang-panel { display: none; }
-.lang-panel.active { display: block; }
-
-/* ── PART DIVIDER ── */
-.part-break{
-  border:none;
-  border-top:1px solid var(--border);
-  margin:80px 0;
-  position:relative;
-}
-.part-break::after{
-  content:'✦';
-  position:absolute;
-  top:-10px;left:50%;
-  transform:translateX(-50%);
-  background:var(--bg);
-  padding:0 14px;
-  color:var(--gold);
-  font-size:14px;
-  transition: background 0.35s ease;
-}
-
-/* ── HERO / COVER ── */
-.hero{
-  min-height:90vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:80px 20px 60px;
-}
-
-.hero-ring{
-  width:180px;height:180px;
-  border-radius:50%;
-  border:1px solid var(--gold);
-  box-shadow:0 0 50px rgba(201,168,76,0.12);
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:48px;
-  position:relative;
-}
-.hero-ring::before{
-  content:'';position:absolute;inset:12px;
-  border-radius:50%;border:1px solid var(--border);
-}
+body{background:var(--bg);color:var(--white);font-family:'Cormorant Garamond',Georgia,serif;line-height:1.7;transition:background 0.35s ease,color 0.35s ease;}
+.controls-bar{position:fixed;top:18px;right:18px;z-index:1000;display:flex;gap:10px;align-items:center;}
+.ctrl-btn{display:flex;align-items:center;gap:7px;padding:8px 16px;background:var(--toggle-bg);border:1px solid var(--toggle-border);color:var(--gold);font-family:'Raleway',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;box-shadow:var(--toggle-shadow);transition:all 0.25s ease;backdrop-filter:blur(8px);}
+.ctrl-btn:hover{background:var(--gold);color:var(--bg);border-color:var(--gold);}
+.ctrl-btn svg{width:14px;height:14px;fill:currentColor;flex-shrink:0;}
+.page{max-width:860px;margin:0 auto;padding:24px 20px;}
+.lang-panel{display:none;}
+.lang-panel.active{display:block;}
+.part-break{border:none;border-top:1px solid var(--border);margin:80px 0;position:relative;}
+.part-break::after{content:'✦';position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--bg);padding:0 14px;color:var(--gold);font-size:14px;transition:background 0.35s ease;}
+.hero{min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 20px 60px;}
+.hero-ring{width:180px;height:180px;border-radius:50%;border:1px solid var(--gold);box-shadow:0 0 50px rgba(201,168,76,0.12);display:flex;align-items:center;justify-content:center;margin-bottom:48px;position:relative;}
+.hero-ring::before{content:'';position:absolute;inset:12px;border-radius:50%;border:1px solid var(--border);}
 .hero-icon{font-size:64px;color:var(--gold);line-height:1;}
-
-.eyebrow{
-  font-family:'Raleway',sans-serif;
-  font-size:10px;letter-spacing:6px;
-  text-transform:uppercase;
-  color:var(--gold);opacity:.7;
-  margin-bottom:18px;
-}
-
-.book-title{
-  font-family:'Cinzel Decorative',serif;
-  font-size:clamp(30px,7vw,58px);
-  color:var(--gold-lt);
-  letter-spacing:3px;line-height:1.15;
-  margin-bottom:14px;
-}
-
-.book-sub{
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;font-weight:300;
-  font-size:clamp(16px,2.5vw,22px);
-  color:var(--muted);
-  margin-bottom:48px;
-}
-
-/* ── SIGN HERO ── */
-.sign-hero{
-  text-align:center;
-  padding:80px 20px 50px;
-}
-.sign-symbol{
-  font-size:80px;line-height:1;
-  color:var(--gold);
-  text-shadow:0 0 40px rgba(201,168,76,0.3);
-  margin-bottom:20px;
-  display:block;
-}
-.sign-number{
-  font-family:'Raleway',sans-serif;
-  font-size:10px;letter-spacing:5px;
-  text-transform:uppercase;
-  color:var(--muted);margin-bottom:10px;
-}
-.sign-name{
-  font-family:'Cinzel Decorative',serif;
-  font-size:clamp(36px,8vw,68px);
-  color:var(--gold-lt);
-  letter-spacing:4px;line-height:1;
-  margin-bottom:14px;
-}
-.sign-tagline{
-  font-style:italic;font-weight:300;
-  font-size:clamp(15px,2.2vw,20px);
-  color:var(--muted);margin-bottom:28px;
-}
-.sign-intro{
-  font-size:clamp(15px,2vw,17px);
-  color:var(--white-dim);
-  max-width:640px;margin:0 auto;
-  line-height:1.9;
-}
-
-/* ── GOLD DIVIDER ── */
-.gdivider{
-  display:flex;align-items:center;gap:14px;
-  margin:48px 0;
-}
-.gdivider-line{
-  flex:1;height:1px;
-  background:linear-gradient(to right,transparent,var(--gold),transparent);
-  opacity:.3;
-}
-.gdivider-dot{
-  width:6px;height:6px;
-  background:var(--gold);
-  transform:rotate(45deg);flex-shrink:0;
-}
-
-/* ── SECTION ── */
+.eyebrow{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:18px;}
+.book-title{font-family:'Cinzel Decorative',serif;font-size:clamp(30px,7vw,58px);color:var(--gold-lt);letter-spacing:3px;line-height:1.15;margin-bottom:14px;}
+.book-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(16px,2.5vw,22px);color:var(--muted);margin-bottom:48px;}
+.sign-hero{text-align:center;padding:80px 20px 50px;}
+.sign-symbol{font-size:80px;line-height:1;color:var(--gold);text-shadow:0 0 40px rgba(201,168,76,0.3);margin-bottom:20px;display:block;}
+.sign-number{font-family:'Raleway',sans-serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.sign-name{font-family:'Cinzel Decorative',serif;font-size:clamp(36px,8vw,68px);color:var(--gold-lt);letter-spacing:4px;line-height:1;margin-bottom:14px;}
+.sign-tagline{font-style:italic;font-weight:300;font-size:clamp(15px,2.2vw,20px);color:var(--muted);margin-bottom:28px;}
+.sign-intro{font-size:clamp(15px,2vw,17px);color:var(--white-dim);max-width:640px;margin:0 auto;line-height:1.9;}
+.gdivider{display:flex;align-items:center;gap:14px;margin:48px 0;}
+.gdivider-line{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);opacity:.3;}
+.gdivider-dot{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;}
 .section{padding:52px 0;border-bottom:1px solid var(--border-wk);}
 .section:last-child{border-bottom:none;}
-
-.sec-label{
-  font-family:'Raleway',sans-serif;
-  font-size:9px;letter-spacing:6px;
-  text-transform:uppercase;
-  color:var(--gold);opacity:.65;
-  margin-bottom:18px;
-}
-.sec-title{
-  font-family:'Cinzel Decorative',serif;
-  font-size:clamp(17px,3.2vw,26px);
-  color:var(--gold-lt);
-  margin-bottom:24px;line-height:1.3;
-}
-
-.body-text{
-  font-size:clamp(15px,1.9vw,17px);
-  color:var(--white-dim);
-  line-height:1.95;margin-bottom:18px;
-}
-.italic-note{
-  font-style:italic;font-weight:300;
-  font-size:clamp(16px,2.2vw,19px);
-  color:var(--gold-lt);
-  border-left:2px solid var(--gold);
-  padding:12px 0 12px 20px;
-  margin:24px 0;opacity:.9;
-}
-
-/* ── CORE GRID ── */
-.core-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:1px;background:var(--border);
-  border:1px solid var(--border);
-  margin:24px 0;
-}
-.core-cell{
-  background:var(--bg2);
-  padding:16px 14px;
-  transition: background 0.35s ease;
-}
-.core-lbl{
-  font-family:'Raleway',sans-serif;
-  font-size:9px;letter-spacing:4px;
-  text-transform:uppercase;
-  color:var(--gold);opacity:.55;
-  margin-bottom:6px;
-}
+.sec-label{font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);opacity:.65;margin-bottom:18px;}
+.sec-title{font-family:'Cinzel Decorative',serif;font-size:clamp(17px,3.2vw,26px);color:var(--gold-lt);margin-bottom:24px;line-height:1.3;}
+.body-text{font-size:clamp(15px,1.9vw,17px);color:var(--white-dim);line-height:1.95;margin-bottom:18px;}
+.italic-note{font-style:italic;font-weight:300;font-size:clamp(16px,2.2vw,19px);color:var(--gold-lt);border-left:2px solid var(--gold);padding:12px 0 12px 20px;margin:24px 0;opacity:.9;}
+.core-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin:24px 0;}
+.core-cell{background:var(--bg2);padding:16px 14px;transition:background 0.35s ease;}
+.core-lbl{font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);opacity:.55;margin-bottom:6px;}
 .core-val{font-size:15px;color:var(--white);}
-
-/* ── TATTVA GRID ── */
-.tattva-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:14px;margin:24px 0;
-}
-.tattva-card{
-  border:1px solid var(--border);
-  padding:18px 16px;
-  background:rgba(201,168,76,0.03);
-  transition: background 0.35s ease;
-}
-.tattva-lbl{
-  font-family:'Raleway',sans-serif;
-  font-size:9px;letter-spacing:4px;
-  text-transform:uppercase;
-  color:var(--gold);opacity:.55;
-  margin-bottom:7px;
-}
+.tattva-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:24px 0;}
+.tattva-card{border:1px solid var(--border);padding:18px 16px;background:rgba(201,168,76,0.03);transition:background 0.35s ease;}
+.tattva-lbl{font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);opacity:.55;margin-bottom:7px;}
 .tattva-val{font-size:14px;color:var(--white-dim);line-height:1.55;}
-
-/* ── CONDITION BOX ── */
-.cond-box{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:16px;margin:22px 0;
-}
+.cond-box{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0;}
 @media(max-width:480px){.cond-box{grid-template-columns:1fr;}}
 .cond-card{padding:18px;border:1px solid var(--border);}
 .cond-card.weak{border-left:3px solid rgba(255,255,255,0.2);}
 .cond-card.strong{border-left:3px solid var(--gold);}
-.cond-lbl{
-  font-family:'Raleway',sans-serif;
-  font-size:9px;letter-spacing:4px;
-  text-transform:uppercase;opacity:.6;
-  margin-bottom:8px;
-}
+.cond-lbl{font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;opacity:.6;margin-bottom:8px;}
 .cond-card.weak .cond-lbl{color:var(--white);}
 .cond-card.strong .cond-lbl{color:var(--gold);}
 .cond-txt{font-size:14px;color:var(--white-dim);line-height:1.7;}
-
-/* ── LIST GROUP ── */
 .list-group{margin:22px 0;}
-.list-group-title{
-  font-family:'Cinzel Decorative',serif;
-  font-size:12px;color:var(--gold-lt);
-  letter-spacing:1px;margin-bottom:12px;
-  padding-bottom:7px;
-  border-bottom:1px solid rgba(201,168,76,0.12);
-}
-.items-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
-  gap:6px;
-}
-.item-tag{
-  display:flex;align-items:flex-start;gap:9px;
-  font-size:14px;color:var(--white-dim);
-  line-height:1.5;padding:5px 0;
-}
-.item-tag::before{
-  content:'▸';color:var(--gold);
-  font-size:9px;margin-top:4px;
-  flex-shrink:0;opacity:.6;
-}
-
-/* ── TRANSITION TABLE ── */
-.trans-table{
-  width:100%;border-collapse:collapse;
-  margin:22px 0;font-size:14px;
-}
-.trans-table th{
-  font-family:'Raleway',sans-serif;
-  font-size:9px;letter-spacing:4px;
-  text-transform:uppercase;
-  color:var(--gold);opacity:.6;
-  padding:11px 14px;text-align:left;
-  border-bottom:1px solid var(--border);
-  background:rgba(201,168,76,0.04);
-}
-.trans-table td{
-  padding:10px 14px;
-  border-bottom:1px solid var(--border-wk);
-  color:var(--white-dim);vertical-align:top;
-}
+.list-group-title{font-family:'Cinzel Decorative',serif;font-size:12px;color:var(--gold-lt);letter-spacing:1px;margin-bottom:12px;padding-bottom:7px;border-bottom:1px solid rgba(201,168,76,0.12);}
+.items-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px;}
+.item-tag{display:flex;align-items:flex-start;gap:9px;font-size:14px;color:var(--white-dim);line-height:1.5;padding:5px 0;}
+.item-tag::before{content:'▸';color:var(--gold);font-size:9px;margin-top:4px;flex-shrink:0;opacity:.6;}
+.trans-table{width:100%;border-collapse:collapse;margin:22px 0;font-size:14px;}
+.trans-table th{font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);opacity:.6;padding:11px 14px;text-align:left;border-bottom:1px solid var(--border);background:rgba(201,168,76,0.04);}
+.trans-table td{padding:10px 14px;border-bottom:1px solid var(--border-wk);color:var(--white-dim);vertical-align:top;}
 .trans-table tr:hover td{background:rgba(201,168,76,0.04);}
 .arr{color:var(--gold);opacity:.4;text-align:center;width:36px;}
-
-/* ── FORCE PILLS ── */
 .force-section{margin:22px 0;}
 .force-cat{margin-bottom:22px;}
-.force-cat-title{
-  font-family:'Raleway',sans-serif;
-  font-size:9px;letter-spacing:5px;
-  text-transform:uppercase;
-  color:var(--gold);opacity:.55;
-  margin-bottom:12px;
-}
+.force-cat-title{font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);opacity:.55;margin-bottom:12px;}
 .force-pills{display:flex;flex-wrap:wrap;gap:8px;}
-.pill{
-  padding:5px 14px;
-  border:1px solid var(--border);
-  font-size:13px;color:var(--white-dim);
-  background:rgba(201,168,76,0.04);
-}
-
-/* ── ESSENCE BOX ── */
-.essence-box{
-  text-align:center;padding:44px 28px;
-  border:1px solid var(--border);
-  margin:44px 0;
-  background:rgba(201,168,76,0.03);
-  position:relative;
-}
-.essence-box::before{
-  content:'ONE-LINE ESSENCE';
-  position:absolute;top:-9px;left:50%;
-  transform:translateX(-50%);
-  white-space:nowrap;
-  background:var(--bg);padding:0 14px;
-  font-family:'Raleway',sans-serif;
-  font-size:9px;letter-spacing:4px;
-  color:var(--gold);opacity:.7;
-  transition: background 0.35s ease;
-}
-.essence-txt{
-  font-family:'Cinzel Decorative',serif;
-  font-size:clamp(13px,2.2vw,18px);
-  color:var(--gold-lt);
-  line-height:1.7;
-}
-
-/* ── FW GRID ── */
-.fw-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-  gap:16px;margin:32px 0;
-}
-.fw-card{
-  border:1px solid var(--border);
-  padding:22px 18px;text-align:center;
-  background:rgba(201,168,76,0.03);
-}
+.pill{padding:5px 14px;border:1px solid var(--border);font-size:13px;color:var(--white-dim);background:rgba(201,168,76,0.04);}
+.essence-box{text-align:center;padding:44px 28px;border:1px solid var(--border);margin:44px 0;background:rgba(201,168,76,0.03);position:relative;}
+.essence-box::before{content:'ONE-LINE ESSENCE';position:absolute;top:-9px;left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--bg);padding:0 14px;font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:4px;color:var(--gold);opacity:.7;transition:background 0.35s ease;}
+.essence-txt{font-family:'Cinzel Decorative',serif;font-size:clamp(13px,2.2vw,18px);color:var(--gold-lt);line-height:1.7;}
+.fw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin:32px 0;}
+.fw-card{border:1px solid var(--border);padding:22px 18px;text-align:center;background:rgba(201,168,76,0.03);}
 .fw-icon{font-size:26px;margin-bottom:10px;display:block;}
-.fw-title{
-  font-family:'Cinzel Decorative',serif;
-  font-size:11px;letter-spacing:2px;
-  color:var(--gold);margin-bottom:7px;
-}
+.fw-title{font-family:'Cinzel Decorative',serif;font-size:11px;letter-spacing:2px;color:var(--gold);margin-bottom:7px;}
 .fw-desc{font-size:13px;color:var(--muted);line-height:1.55;}
-
-/* ── SIGNS GRID ── */
-.signs-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:10px;margin:28px 0;
-}
+.signs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:28px 0;}
 @media(max-width:560px){.signs-grid{grid-template-columns:repeat(2,1fr);}}
-.sign-pill-sm{
-  display:flex;align-items:center;gap:8px;
-  padding:11px 14px;
-  border:1px solid var(--border-wk);
-  background:var(--bg2);
-  transition: background 0.35s ease;
-}
-.sp-num{
-  font-family:'Cinzel Decorative',serif;
-  font-size:9px;color:var(--gold);opacity:.5;min-width:16px;
-}
+.sign-pill-sm{display:flex;align-items:center;gap:8px;padding:11px 14px;border:1px solid var(--border-wk);background:var(--bg2);transition:background 0.35s ease;}
+.sp-num{font-family:'Cinzel Decorative',serif;font-size:9px;color:var(--gold);opacity:.5;min-width:16px;}
 .sp-name{font-size:14px;color:var(--white);}
 .sp-ruler{font-size:12px;color:var(--muted);font-style:italic;margin-left:auto;}
-
-/* ── PLANETS LIST ── */
-.planets-list{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:14px;margin:24px 0;
-}
-.planet-item{
-  padding:14px 16px;
-  border-left:2px solid var(--gold);
-  background:rgba(201,168,76,0.03);
-}
-.planet-name{
-  font-family:'Cinzel Decorative',serif;
-  font-size:12px;color:var(--gold-lt);margin-bottom:5px;
-}
+.planets-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:24px 0;}
+.planet-item{padding:14px 16px;border-left:2px solid var(--gold);background:rgba(201,168,76,0.03);}
+.planet-name{font-family:'Cinzel Decorative',serif;font-size:12px;color:var(--gold-lt);margin-bottom:5px;}
 .planet-theme{font-size:12px;color:var(--muted);line-height:1.5;}
-
-/* ── LAYERS BOX ── */
-.layers-box{
-  border:1px solid var(--border);
-  padding:32px;margin:32px 0;
-  background:rgba(201,168,76,0.03);
-  position:relative;
-}
-.layers-box::before{
-  content:'Four Layers';
-  position:absolute;top:-9px;left:28px;
-  background:var(--bg);padding:0 12px;
-  font-family:'Raleway',sans-serif;
-  font-size:9px;letter-spacing:4px;color:var(--gold);
-  transition: background 0.35s ease;
-}
+.layers-box{border:1px solid var(--border);padding:32px;margin:32px 0;background:rgba(201,168,76,0.03);position:relative;}
+.layers-box::before{content:'Four Layers';position:absolute;top:-9px;left:28px;background:var(--bg);padding:0 12px;font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:4px;color:var(--gold);transition:background 0.35s ease;}
 .layer-row{display:flex;gap:18px;align-items:flex-start;margin-bottom:22px;}
 .layer-row:last-child{margin-bottom:0;}
-.layer-num{
-  font-family:'Cinzel Decorative',serif;
-  font-size:26px;color:rgba(201,168,76,0.15);
-  min-width:38px;line-height:1;margin-top:2px;
-}
-.layer-title{
-  font-family:'Cinzel Decorative',serif;
-  font-size:12px;color:var(--gold);
-  margin-bottom:5px;letter-spacing:1px;
-}
+.layer-num{font-family:'Cinzel Decorative',serif;font-size:26px;color:rgba(201,168,76,0.15);min-width:38px;line-height:1;margin-top:2px;}
+.layer-title{font-family:'Cinzel Decorative',serif;font-size:12px;color:var(--gold);margin-bottom:5px;letter-spacing:1px;}
 .layer-desc{font-size:14px;color:var(--white-dim);line-height:1.7;}
-
-/* ── STEPS ── */
 .steps{counter-reset:steps;margin:26px 0;}
 .step{counter-increment:steps;display:flex;gap:18px;margin-bottom:24px;align-items:flex-start;}
-.step::before{
-  content:counter(steps);
-  font-family:'Cinzel Decorative',serif;
-  font-size:18px;color:var(--gold);opacity:.45;min-width:28px;margin-top:2px;
-}
+.step::before{content:counter(steps);font-family:'Cinzel Decorative',serif;font-size:18px;color:var(--gold);opacity:.45;min-width:28px;margin-top:2px;}
 .step-txt{font-size:15px;line-height:1.8;color:var(--white-dim);}
 .step-txt strong{color:var(--gold-lt);font-weight:600;}
-
-/* ── RASI TABLE ── */
-.rasi-table{
-  width:100%;border-collapse:collapse;
-  margin:28px 0;font-size:14px;
-}
-.rasi-table th{
-  font-family:'Raleway',sans-serif;
-  font-size:9px;letter-spacing:4px;
-  text-transform:uppercase;
-  color:var(--gold);
-  padding:12px 16px;text-align:left;
-  border-bottom:1px solid var(--border);
-  background:rgba(201,168,76,0.04);
-}
-.rasi-table td{
-  padding:11px 16px;
-  border-bottom:1px solid var(--border-wk);
-  color:var(--white-dim);
-}
-.rasi-table tr:hover td{background:rgba(201,168,76,0.04);}
-.rasi-sign{color:var(--gold-lt);font-style:italic;}
-
-/* ── MEMORY BOX ── */
-.memory-box{
-  border:1px solid var(--border);
-  margin:32px 0;
-  background:rgba(201,168,76,0.02);
-}
-.memory-row{
-  display:flex;align-items:baseline;gap:16px;
-  padding:11px 18px;
-  border-bottom:1px solid var(--border-wk);
-}
+.memory-box{border:1px solid var(--border);margin:32px 0;background:rgba(201,168,76,0.02);}
+.memory-row{display:flex;align-items:baseline;gap:16px;padding:11px 18px;border-bottom:1px solid var(--border-wk);}
 .memory-row:last-child{border-bottom:none;}
-.mem-cat{
-  font-family:'Raleway',sans-serif;
-  font-size:9px;letter-spacing:4px;
-  text-transform:uppercase;
-  color:var(--gold);opacity:.6;
-  min-width:100px;flex-shrink:0;
-}
+.mem-cat{font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);opacity:.6;min-width:100px;flex-shrink:0;}
 .mem-val{font-size:14px;color:var(--white-dim);}
-
-/* ── PLANET HERO ── */
-.planet-hero{
-  text-align:center;
-  padding:64px 20px 40px;
-}
-.planet-symbol{
-  font-size:72px;line-height:1;
-  color:var(--gold);
-  text-shadow:0 0 40px rgba(201,168,76,0.3);
-  margin-bottom:14px;display:block;
-}
-.planet-name{
-  font-family:'Cinzel Decorative',serif;
-  font-size:clamp(28px,6vw,54px);
-  color:var(--gold-lt);
-  letter-spacing:3px;line-height:1;
-  margin-bottom:10px;
-}
-.planet-tag{
-  font-style:italic;font-weight:300;
-  font-size:clamp(14px,2vw,18px);
-  color:var(--muted);margin-bottom:22px;
-}
-.planet-intro{
-  font-size:clamp(15px,2vw,17px);
-  color:var(--white-dim);
-  max-width:640px;margin:0 auto;
-  line-height:1.9;
-}
-
-/* ── ENDING ── */
-.ending{
-  text-align:center;
-  padding:80px 20px 100px;
-}
-.ending-ring{
-  width:120px;height:120px;
-  border-radius:50%;
-  border:1px solid var(--gold);
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 40px;
-  box-shadow:0 0 40px rgba(201,168,76,0.1);
-}
+.ending{text-align:center;padding:80px 20px 100px;}
+.ending-ring{width:120px;height:120px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 40px;box-shadow:0 0 40px rgba(201,168,76,0.1);}
 .ending-icon{font-size:44px;color:var(--gold);}
-.ending-title{
-  font-family:'Cinzel Decorative',serif;
-  font-size:clamp(22px,4vw,36px);
-  color:var(--gold-lt);
-  margin-bottom:10px;
-}
-.ending-sub{
-  font-style:italic;color:var(--muted);
-  font-size:clamp(14px,2vw,17px);
-  margin-bottom:28px;
-}
-.ending-verse{
-  font-style:italic;font-weight:300;
-  font-size:clamp(16px,2.4vw,21px);
-  color:var(--white-dim);
-  line-height:2;
-  max-width:560px;margin:0 auto 28px;
-}
-.ending-note{
-  font-family:'Raleway',sans-serif;
-  font-size:9px;letter-spacing:5px;
-  text-transform:uppercase;
-  color:var(--gold);opacity:.5;
-}
-
-/* ── NEXT SIGN ── */
-.next-sign{
-  text-align:center;
-  padding:60px 20px;
-}
-.next-lbl{
-  font-family:'Raleway',sans-serif;
-  font-size:9px;letter-spacing:5px;
-  text-transform:uppercase;
-  color:var(--muted);margin-bottom:12px;
-}
-.next-name{
-  font-family:'Cinzel Decorative',serif;
-  font-size:clamp(18px,3.5vw,28px);
-  color:var(--gold-lt);opacity:.5;
-}
-
-/* Tamil layers-box label override */
-[lang="ta"] .layers-box::before,
-.lang-panel-ta .layers-box::before {
-  content: 'நான்கு அடுக்குகள்';
-}
-[lang="ta"] .essence-box::before,
-.lang-panel-ta .essence-box::before {
-  content: 'ஒரே வரி சாரம்';
-}
+.ending-title{font-family:'Cinzel Decorative',serif;font-size:clamp(22px,4vw,36px);color:var(--gold-lt);margin-bottom:10px;}
+.ending-sub{font-style:italic;color:var(--muted);font-size:clamp(14px,2vw,17px);margin-bottom:28px;}
+.ending-verse{font-style:italic;font-weight:300;font-size:clamp(16px,2.4vw,21px);color:var(--white-dim);line-height:2;max-width:560px;margin:0 auto 28px;}
+.ending-note{font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);opacity:.5;}
+.unlock-btn{display:inline-block;margin-top:24px;padding:14px 36px;background:var(--gold);color:#0a0a0a;font-family:'Raleway',sans-serif;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;text-decoration:none;box-shadow:0 0 40px rgba(201,168,76,0.4);transition:all 0.25s ease;}
+.unlock-btn:hover{background:var(--gold-lt);box-shadow:0 0 65px rgba(201,168,76,0.65);transform:translateY(-2px);}
+/* Tamil overrides */
+.lang-panel-ta .layers-box::before{content:'நான்கு அடுக்குகள்';}
+.lang-panel-ta .essence-box::before{content:'ஒரே வரி சாரம்';}
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════
-     FLOATING CONTROLS
-══════════════════════════════════════ -->
 <div class="controls-bar">
-  <!-- Theme Toggle -->
-  <button class="ctrl-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle Theme">
+  <button class="ctrl-btn" onclick="toggleTheme()">
     <svg id="theme-icon-dark" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     <svg id="theme-icon-light" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"/><line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"/></svg>
     <span id="theme-label">Light</span>
   </button>
-  <!-- Language Toggle -->
-  <button class="ctrl-btn" id="lang-btn" onclick="toggleLang()" title="Switch Language">
+  <button class="ctrl-btn" onclick="toggleLang()">
     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
     <span id="lang-label">தமிழ்</span>
   </button>
@@ -670,15 +168,8 @@ body{
 
 <div class="page">
 
-<!-- ══════════════════════════════════════
-     ENGLISH PANEL
-══════════════════════════════════════ -->
+<!-- ══ ENGLISH PANEL ══ -->
 <div class="lang-panel active" id="panel-en">
-
-
-<!-- ████████████████████████████████████████
-     PART 1 — INTRODUCTION
-████████████████████████████████████████ -->
 
 <div class="hero">
   <div class="hero-ring"><span class="hero-icon">☸</span></div>
@@ -690,17 +181,15 @@ body{
   <div class="eyebrow" style="margin-bottom:0;">Based on KP Astrology &amp; Vedic Tattva Shastra</div>
 </div>
 
-<!-- About -->
 <div class="section">
   <div class="sec-label">About This Book</div>
   <h2 class="sec-title">What Is Rasi Tattva?</h2>
   <p class="body-text">Every sign of the zodiac is not merely a symbol on a chart — it is a living principle, a cosmic category that classifies all of existence: the beings that breathe, the objects that serve, the forces that move invisibly, and the instincts that drive action.</p>
   <p class="body-text"><em>Rasi Tattva</em> is a comprehensive reference that maps all twelve zodiac signs — plus the planets Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Rahu, and Ketu — across four dimensions of reality. For each sign and planet, you will find what it represents in living beings, in non-living matter, in the boundary between the two, and in the purely abstract realm of forces and principles.</p>
   <div class="italic-note">"The universe does not merely reflect the zodiac — the zodiac is the universe, categorized and named."</div>
-  <p class="body-text">This system is rooted in the ancient Vedic understanding that all creation falls within the domain of the twelve Rasis and the nine Grahas. A soldier and a sword, a fever and a furnace, courage and a cutting blade — all belong to Aries. A lotus and a lake, a mother's love and a cooking vessel — all belong to Cancer. When you understand which cosmic principle governs a thing, you begin to see the universe as a unified, intelligible whole.</p>
+  <p class="body-text">This system is rooted in the ancient Vedic understanding that all creation falls within the domain of the twelve Rasis and the nine Grahas. A soldier and a sword, a fever and a furnace, courage and a cutting blade — all belong to Aries. A lotus and a lake, a mother's love and a cooking vessel — all belong to Cancer.</p>
 </div>
 
-<!-- Purpose -->
 <div class="section">
   <div class="sec-label">Why This Book</div>
   <h2 class="sec-title">The Purpose of This Classification</h2>
@@ -713,7 +202,6 @@ body{
   </div>
 </div>
 
-<!-- Four Layers -->
 <div class="section">
   <div class="sec-label">Book Structure</div>
   <h2 class="sec-title">The Four-Layer Framework</h2>
@@ -726,7 +214,6 @@ body{
   </div>
 </div>
 
-<!-- Contents -->
 <div class="section">
   <div class="sec-label">Contents Overview</div>
   <h2 class="sec-title">The Twelve Signs</h2>
@@ -758,25 +245,21 @@ body{
   </div>
 </div>
 
-<!-- How to Use -->
 <div class="section">
   <div class="sec-label">Reader's Guide</div>
   <h2 class="sec-title">How to Use This Book</h2>
   <div class="steps">
-    <div class="step"><div class="step-txt"><strong>Start with Core Nature.</strong> Before exploring the four layers of any sign, read its fundamental qualities — element, ruling planet, direction, Varna, and body parts. This gives you the root of all that follows.</div></div>
-    <div class="step"><div class="step-txt"><strong>Follow the Tattva Summary.</strong> The eight-point summary (Life Force → Shadow) gives a rapid snapshot of how the sign operates across all dimensions. Memorize these to build fast intuition.</div></div>
-    <div class="step"><div class="step-txt"><strong>Use Layer IV for deep analysis.</strong> The "Neither Living Nor Non-Living" layer contains the invisible essence — the psychological force or principle that animates everything else. Most useful for natal chart and psychological interpretation.</div></div>
-    <div class="step"><div class="step-txt"><strong>Cross-reference signs with planets.</strong> Many themes appear in both a sign chapter and its ruler's planet chapter. Read both together — Aries + Mars creates the fullest picture of martial energy.</div></div>
-    <div class="step"><div class="step-txt"><strong>Apply to KP analysis.</strong> When analyzing a house, check both the sign occupying it and its lord's planet chapter. The overlap reveals the true, layered meaning of any planet-house-sign combination.</div></div>
+    <div class="step"><div class="step-txt"><strong>Start with Core Nature.</strong> Before exploring the four layers of any sign, read its fundamental qualities — element, ruling planet, direction, Varna, and body parts.</div></div>
+    <div class="step"><div class="step-txt"><strong>Follow the Tattva Summary.</strong> The eight-point summary (Life Force → Shadow) gives a rapid snapshot of how the sign operates across all dimensions.</div></div>
+    <div class="step"><div class="step-txt"><strong>Use Layer IV for deep analysis.</strong> The "Neither Living Nor Non-Living" layer contains the invisible essence — the psychological force that animates everything else.</div></div>
+    <div class="step"><div class="step-txt"><strong>Cross-reference signs with planets.</strong> Many themes appear in both a sign chapter and its ruler's planet chapter. Read both together — Aries + Mars creates the fullest picture.</div></div>
+    <div class="step"><div class="step-txt"><strong>Apply to KP analysis.</strong> When analyzing a house, check both the sign occupying it and its lord's planet chapter.</div></div>
   </div>
 </div>
 
 <hr class="part-break">
 
-<!-- ████████████████████████████████████████
-     PART 2 — ARIES
-████████████████████████████████████████ -->
-
+<!-- ══ ARIES ══ -->
 <div class="sign-hero">
   <div class="eyebrow">Rasi Tattva · Sign 01</div>
   <span class="sign-symbol">♈</span>
@@ -934,29 +417,12 @@ body{
 
 <hr class="part-break">
 
-
-<!-- █████████ SAMPLE ENDING █████████ -->
-
-</div><!-- /panel-en -->
-
+<!-- ══ ENGLISH ENDING ══ -->
 <div class="ending">
-
-  <div class="ending-ring">
-    <span class="ending-icon">🔒</span>
-  </div>
-
+  <div class="ending-ring"><span class="ending-icon">🔒</span></div>
   <h2 class="ending-title">Sample Preview Ends Here</h2>
-
-  <p class="ending-sub">
-    You’ve just experienced Aries — the beginning of the cosmic journey.
-  </p>
-
-  <div class="gdivider">
-    <div class="gdivider-line"></div>
-    <div class="gdivider-dot"></div>
-    <div class="gdivider-line"></div>
-  </div>
-
+  <p class="ending-sub">You've just experienced Aries — the beginning of the cosmic journey.</p>
+  <div class="gdivider"><div class="gdivider-line"></div><div class="gdivider-dot"></div><div class="gdivider-line"></div></div>
   <p class="ending-verse">
     The remaining 11 Rasis continue this journey —<br>
     revealing deeper patterns of life,<br>
@@ -964,37 +430,18 @@ body{
     Each sign completes a part of the whole,<br>
     and together they form the full map of existence.
   </p>
-
-  <div class="gdivider">
-    <div class="gdivider-line"></div>
-    <div class="gdivider-dot"></div>
-    <div class="gdivider-line"></div>
-  </div>
-
+  <div class="gdivider"><div class="gdivider-line"></div><div class="gdivider-dot"></div><div class="gdivider-line"></div></div>
   <p class="body-text" style="max-width:560px;margin:0 auto 20px;text-align:center;">
     This is only a preview. The complete knowledge of all 12 Rasis is available in the full version of <em>Rasi Tattva</em>.
   </p>
-
-  <div class="ending-note">
-    🔒 Remaining 11 Rasi are locked
-  </div>
-
-  <!-- BUY BUTTON -->
-  <a href=https://pages.razorpay.com/Rasi-tattva" 
-  target="_blank">
-    <button style="margin-top:20px; padding:12px 24px; font-size:16px; cursor:pointer;">
-      🔓 Unlock Full Book
-    </button>
-  </a>
-
+  <div class="ending-note">🔒 Remaining 11 Rasi are locked</div>
+  <a class="unlock-btn" href="https://pages.razorpay.com/Rasi-tattva" target="_blank">🔓 Unlock Full Book</a>
 </div>
 
-<!-- ══════════════════════════════════════
-     TAMIL PANEL
-══════════════════════════════════════ -->
-<div class="lang-panel lang-panel-ta" id="panel-ta">
+</div><!-- /panel-en -->
 
-<!-- ████ பகுதி 1 — அறிமுகம் ████ -->
+<!-- ══ TAMIL PANEL ══ -->
+<div class="lang-panel lang-panel-ta" id="panel-ta">
 
 <div class="hero">
   <div class="hero-ring"><span class="hero-icon">☸</span></div>
@@ -1009,16 +456,16 @@ body{
 <div class="section">
   <div class="sec-label">இந்த நூலைப் பற்றி</div>
   <h2 class="sec-title">ராசி தத்துவம் என்றால் என்ன?</h2>
-  <p class="body-text">ஜோதிட ராசிகள் வெறும் வரைபட அடையாளங்கள் மட்டுமல்ல — அவை உயிர்ப்புள்ள கொள்கைகள், அனைத்து இருப்பையும் வகைப்படுத்தும் பிரபஞ்ச வகைகள்: சுவாசிக்கும் உயிரினங்கள், சேவை செய்யும் பொருட்கள், கண்ணுக்கு தெரியாமல் இயங்கும் சக்திகள், செயல்களை இயக்கும் உள்ளுணர்வுகள்.</p>
+  <p class="body-text">ஜோதிட ராசிகள் வெறும் வரைபட அடையாளங்கள் மட்டுமல்ல — அவை உயிர்ப்புள்ள கொள்கைகள், அனைத்து இருப்பையும் வகைப்படுத்தும் பிரபஞ்ச வகைகள்.</p>
   <p class="body-text"><em>ராசி தத்துவம்</em> என்பது பன்னிரண்டு ராசிகளையும் — சூரியன், சந்திரன், புதன், சுக்கிரன், செவ்வாய், குரு, சனி, ராகு, கேது ஆகிய கிரகங்களையும் — நான்கு பரிமாணங்களில் வரைபடமிடும் விரிவான குறிப்பு நூலாகும்.</p>
   <div class="italic-note">"பிரபஞ்சம் ராசிகளை வெறுமனே பிரதிபலிக்கவில்லை — ராசிகளே பிரபஞ்சம், வகைப்படுத்தப்பட்டு பெயரிடப்பட்டது."</div>
-  <p class="body-text">இந்த முறை பன்னிரண்டு ராசிகள் மற்றும் ஒன்பது கிரகங்களின் ஆட்சியில் அனைத்து படைப்பும் அடங்கும் என்ற பழங்கால வேத புரிதலில் வேரூன்றியுள்ளது. ஒரு வீரனும் ஒரு வாளும், காய்ச்சலும் உலையும், தைரியமும் கத்தியும் — அனைத்தும் மேஷத்தை சேர்ந்தவை. தாமரையும் ஏரியும், தாயின் அன்பும் சமையல் பாத்திரமும் — அனைத்தும் கடகத்தை சேர்ந்தவை.</p>
+  <p class="body-text">இந்த முறை பன்னிரண்டு ராசிகள் மற்றும் ஒன்பது கிரகங்களின் ஆட்சியில் அனைத்து படைப்பும் அடங்கும் என்ற பழங்கால வேத புரிதலில் வேரூன்றியுள்ளது.</p>
 </div>
 
 <div class="section">
   <div class="sec-label">இந்த நூல் ஏன்?</div>
   <h2 class="sec-title">இந்த வகைப்பாட்டின் நோக்கம்</h2>
-  <p class="body-text">பாரம்பரிய ஜோதிட நூல்கள் கிரகங்களையும் அவற்றின் குணங்களையும் பட்டியலிடுகின்றன, ஆனால் செவ்வாய் <em>ஏன்</em> இரத்தத்தையும் இரும்பையும், வீரனையும் உலையையும், கோபத்தையும் அறுவை கத்தியையும் ஆளுகிறது என்று அரிதாகவே விளக்குகின்றன. காரணம் தத்துவத்தில் உள்ளது — அனைத்து வடிவங்களுக்கும் அடிப்படையான முக்கிய கொள்கை. இந்த நூல் அந்த இடைவெளியை நிரப்புகிறது.</p>
+  <p class="body-text">பாரம்பரிய ஜோதிட நூல்கள் கிரகங்களையும் அவற்றின் குணங்களையும் பட்டியலிடுகின்றன, ஆனால் செவ்வாய் <em>ஏன்</em> இரத்தத்தையும் இரும்பையும் ஆளுகிறது என்று அரிதாகவே விளக்குகின்றன. இந்த நூல் அந்த இடைவெளியை நிரப்புகிறது.</p>
   <div class="fw-grid">
     <div class="fw-card"><span class="fw-icon">🔭</span><div class="fw-title">KP ஜோதிடர்கள்</div><div class="fw-desc">துல்லியமான பாவ &amp; கிரக விளக்கத்திற்கு காரகத்வ அறிவை ஆழப்படுத்துங்கள்</div></div>
     <div class="fw-card"><span class="fw-icon">📚</span><div class="fw-title">மாணவர்கள்</div><div class="fw-desc">ராசி சின்னவியலில் தெளிவான, கட்டமைக்கப்பட்ட அடித்தளத்தை உருவாக்குங்கள்</div></div>
@@ -1030,12 +477,12 @@ body{
 <div class="section">
   <div class="sec-label">நூலின் அமைப்பு</div>
   <h2 class="sec-title">நான்கு அடுக்கு கட்டமைப்பு</h2>
-  <p class="body-text">ஒவ்வொரு ராசியும் கிரகமும் ஒரு நிலையான நான்கு அடுக்கு கட்டமைப்பு மூலம் ஆராயப்படுகின்றன, ஒரு பிரபஞ்ச கொள்கை மிகவும் உடல் நிலையிலிருந்து மிகவும் நுண்ணிய பரிமாணம் வரை எவ்வாறு வெளிப்படுகிறது என்பதை வெளிப்படுத்துகிறது.</p>
+  <p class="body-text">ஒவ்வொரு ராசியும் கிரகமும் ஒரு நிலையான நான்கு அடுக்கு கட்டமைப்பு மூலம் ஆராயப்படுகின்றன.</p>
   <div class="layers-box">
-    <div class="layer-row"><div class="layer-num">I</div><div><div class="layer-title">உயிர்உள்ள பொருட்கள்</div><div class="layer-desc">ராசியின் சக்தியை உள்ளடக்கிய மனிதர்கள், விலங்குகள், பறவைகள், பூச்சிகள், தாவரங்கள் — மேஷத்திற்கு வீரர்கள், ரிஷபத்திற்கு விவசாயிகள், மிதுனத்திற்கு அறிஞர்கள்.</div></div></div>
-    <div class="layer-row"><div class="layer-num">II</div><div><div class="layer-title">உயிரற்ற பொருட்கள்</div><div class="layer-desc">ராசியின் இயல்பை சுமக்கும் பொருட்கள், கருவிகள், கட்டமைப்புகள் — மேஷத்திற்கு ஆயுதங்கள், ரிஷபத்திற்கு தங்கம், மிதுனத்திற்கு புத்தகங்கள்.</div></div></div>
-    <div class="layer-row"><div class="layer-num">III</div><div><div class="layer-title">உயிருள்ளவை &amp; உயிரற்றவை இரண்டும்</div><div class="layer-desc">மாற்ற மண்டலம் — உயிரினங்கள் உயிரற்ற பொருட்களை எவ்வாறு உற்பத்தி செய்கின்றன, மற்றும் அந்த மாற்றத்தை ராசி எவ்வாறு ஆள்கிறது.</div></div></div>
-    <div class="layer-row"><div class="layer-num">IV</div><div><div class="layer-title">உயிருள்ளதும் இல்லை, உயிரற்றதும் இல்லை</div><div class="layer-desc">சூட்சும சக்திகள், உளவியல் நிலைகள், உள்ளுணர்வுகள் — செயல்படும் உந்துதல் (மேஷம்), அழகின் விருப்பம் (ரிஷபம்), அறிவின் ஓட்டம் (மிதுனம்).</div></div></div>
+    <div class="layer-row"><div class="layer-num">I</div><div><div class="layer-title">உயிர்உள்ள பொருட்கள்</div><div class="layer-desc">ராசியின் சக்தியை உள்ளடக்கிய மனிதர்கள், விலங்குகள், பறவைகள், பூச்சிகள், தாவரங்கள்.</div></div></div>
+    <div class="layer-row"><div class="layer-num">II</div><div><div class="layer-title">உயிரற்ற பொருட்கள்</div><div class="layer-desc">ராசியின் இயல்பை சுமக்கும் பொருட்கள், கருவிகள், கட்டமைப்புகள்.</div></div></div>
+    <div class="layer-row"><div class="layer-num">III</div><div><div class="layer-title">உயிருள்ளவை &amp; உயிரற்றவை இரண்டும்</div><div class="layer-desc">மாற்ற மண்டலம் — உயிரினங்கள் உயிரற்ற பொருட்களை எவ்வாறு உற்பத்தி செய்கின்றன.</div></div></div>
+    <div class="layer-row"><div class="layer-num">IV</div><div><div class="layer-title">உயிருள்ளதும் இல்லை, உயிரற்றதும் இல்லை</div><div class="layer-desc">சூட்சும சக்திகள், உளவியல் நிலைகள், உள்ளுணர்வுகள் — செயல்படும் உந்துதல்.</div></div></div>
   </div>
 </div>
 
@@ -1074,25 +521,24 @@ body{
   <div class="sec-label">வாசகர் வழிகாட்டி</div>
   <h2 class="sec-title">இந்த நூலை எவ்வாறு பயன்படுத்துவது</h2>
   <div class="steps">
-    <div class="step"><div class="step-txt"><strong>மூல இயல்பில் தொடங்குங்கள்.</strong> எந்த ராசியின் நான்கு அடுக்குகளையும் ஆராய்வதற்கு முன், அதன் அடிப்படை குணங்களைப் படியுங்கள் — தத்துவம், ஆட்சி கிரகம், திசை, வர்ணம், உடல் உறுப்புகள்.</div></div>
-    <div class="step"><div class="step-txt"><strong>தத்துவ சுருக்கத்தை பின்பற்றுங்கள்.</strong> எட்டு புள்ளி சுருக்கம் (உயிர் சக்தி → நிழல்) ராசி அனைத்து பரிமாணங்களிலும் எவ்வாறு செயல்படுகிறது என்பதன் விரைவான பார்வையை தருகிறது.</div></div>
-    <div class="step"><div class="step-txt"><strong>ஆழமான பகுப்பாய்விற்கு அடுக்கு IV ஐ பயன்படுத்துங்கள்.</strong> கண்ணுக்கு தெரியாத சாரம் — அனைத்தையும் உயிர்ப்பிக்கும் உளவியல் சக்தி — இங்கே உள்ளது.</div></div>
-    <div class="step"><div class="step-txt"><strong>ராசிகளை கிரகங்களுடன் குறுக்கு சரிபாருங்கள்.</strong> மேஷம் + செவ்வாய் — இரண்டையும் சேர்த்து படியுங்கள். போர் சக்தியின் முழுமையான படம் கிடைக்கும்.</div></div>
+    <div class="step"><div class="step-txt"><strong>மூல இயல்பில் தொடங்குங்கள்.</strong> எந்த ராசியின் நான்கு அடுக்குகளையும் ஆராய்வதற்கு முன், அதன் அடிப்படை குணங்களைப் படியுங்கள்.</div></div>
+    <div class="step"><div class="step-txt"><strong>தத்துவ சுருக்கத்தை பின்பற்றுங்கள்.</strong> எட்டு புள்ளி சுருக்கம் ராசி அனைத்து பரிமாணங்களிலும் எவ்வாறு செயல்படுகிறது என்பதன் விரைவான பார்வையை தருகிறது.</div></div>
+    <div class="step"><div class="step-txt"><strong>ஆழமான பகுப்பாய்விற்கு அடுக்கு IV ஐ பயன்படுத்துங்கள்.</strong> கண்ணுக்கு தெரியாத சாரம் இங்கே உள்ளது.</div></div>
+    <div class="step"><div class="step-txt"><strong>ராசிகளை கிரகங்களுடன் குறுக்கு சரிபாருங்கள்.</strong> மேஷம் + செவ்வாய் — இரண்டையும் சேர்த்து படியுங்கள்.</div></div>
     <div class="step"><div class="step-txt"><strong>KP பகுப்பாய்விற்கு பயன்படுத்துங்கள்.</strong> ஒரு பாவத்தை பகுப்பாய்வு செய்யும்போது, அதை ஆக்கிரமிக்கும் ராசியையும் அதன் அதிபதியின் கிரக அத்தியாயத்தையும் சரிபாருங்கள்.</div></div>
   </div>
 </div>
 
 <hr class="part-break">
 
-<!-- ████ பகுதி 2 — மேஷம் ████ -->
-
+<!-- ══ மேஷம் ══ -->
 <div class="sign-hero">
   <div class="eyebrow">ராசி தத்துவம் · ராசி 01</div>
   <span class="sign-symbol">♈</span>
   <div class="sign-number">சரம் · அக்னி · செவ்வாய் ஆட்சி · தர்ம ராசி</div>
   <h2 class="sign-name">மேஷம்</h2>
   <p class="sign-tagline">மேஷம் — ஆட்டுக்கிடா — வடிவத்திற்கு முந்தைய தீப்பொறி</p>
-  <p class="sign-intro">செவ்வாய் ஆட்சி செய்யும் சர அக்னி ராசி. மேஷம் சக்தி, முயற்சி, தைரியம், தலைமை, செயல், போர், வேகம் மற்றும் கட்டுறா வலிமையை குறிக்கிறது — குறிப்பாக தொடங்க, வெட்ட, தாக்க, பாதுகாக்க அல்லது வழிநடத்த பயன்படும் கருவிகள் மற்றும் பொருட்கள்.</p>
+  <p class="sign-intro">செவ்வாய் ஆட்சி செய்யும் சர அக்னி ராசி. மேஷம் சக்தி, முயற்சி, தைரியம், தலைமை, செயல், போர், வேகம் மற்றும் கட்டுறா வலிமையை குறிக்கிறது.</p>
 </div>
 
 <div class="section">
@@ -1204,7 +650,7 @@ body{
 <div class="section">
   <div class="sec-label">அடுக்கு III</div>
   <h2 class="sec-title">உயிருள்ளவை &amp; உயிரற்றவை — மாற்றம்</h2>
-  <p class="body-text">மேஷம் உயிர் → செயல் → பொருள் என்ற மாற்றத்தை ஆள்கிறது. செவ்வாய் அறுவை சிகிச்சை (உயிர் → வெட்டும் கருவி), போர் (மனிதர்கள் → ஆயுதங்கள்), பொறியியல் (யோசனை → இயந்திரம்) ஆகியவற்றை ஆள்கிறது.</p>
+  <p class="body-text">மேஷம் உயிர் → செயல் → பொருள் என்ற மாற்றத்தை ஆள்கிறது.</p>
   <table class="trans-table">
     <thead><tr><th>உயிரினம்</th><th class="arr"></th><th>உற்பத்தி செய்கிறது / ஆகிறது</th></tr></thead>
     <tbody>
@@ -1228,7 +674,7 @@ body{
 <div class="section">
   <div class="sec-label">அடுக்கு IV — கண்ணுக்கு தெரியாத உலகம்</div>
   <h2 class="sec-title">உயிருள்ளதும் இல்லை, உயிரற்றதும் இல்லை</h2>
-  <p class="body-text">மேஷம் வடிவத்திற்கு முந்தைய தீப்பொறியை ஆள்கிறது — ஒரு உயிரினம் செயல்படுவதற்கு முன், ஒரு ஆயுதம் தூக்கப்படுவதற்கு முன், தீ தெரிவதற்கு முன். அந்த கண்ணுக்கு தெரியாத தள்ளுதலே மேஷம்.</p>
+  <p class="body-text">மேஷம் வடிவத்திற்கு முந்தைய தீப்பொறியை ஆள்கிறது — அந்த கண்ணுக்கு தெரியாத தள்ளுதலே மேஷம்.</p>
   <div class="force-section">
     <div class="force-cat"><div class="force-cat-title">சக்தி சக்திகள்</div><div class="force-pills"><span class="pill">கட்டுறா சக்தி</span><span class="pill">வெப்பக் கொள்கை</span><span class="pill">உயிர் சக்தி அலை</span><span class="pill">அட்ரினலின் உணர்வு</span><span class="pill">டெஸ்டோஸ்டிரோன் உந்துதல்</span></div></div>
     <div class="force-cat"><div class="force-cat-title">உள்ளுணர்வுகள் &amp; உந்துதல்கள்</div><div class="force-pills"><span class="pill">சண்டை உள்ளுணர்வு</span><span class="pill">உயிர்வாழல் எதிர்வினை</span><span class="pill">தாக்குதல் பதில்</span><span class="pill">அச்சமின்மை உந்துதல்</span><span class="pill">போட்டி உணர்வு</span></div></div>
@@ -1243,77 +689,74 @@ body{
 
 <hr class="part-break">
 
-
-<hr class="part-break">
-
-<!-- முடிவு -->
+<!-- ══ TAMIL ENDING ══ -->
 <div class="ending">
   <div class="ending-ring"><span class="ending-icon">☸</span></div>
-
   <h2 class="ending-title">வகைப்படுத்தப்பட்ட பிரபஞ்சம்</h2>
   <p class="ending-sub">ஆட்டுக்கிடாவின் முதல் தீயிலிருந்து மீனத்தின் இறுதி சரணடைதல் வரை</p>
-
   <div class="gdivider"><div class="gdivider-line"></div><div class="gdivider-dot"></div><div class="gdivider-line"></div></div>
-
   <p class="ending-verse">
     ஒவ்வொரு வீரனும் ஒவ்வொரு வாளும்,<br>
     ஒவ்வொரு அம்மாவும் ஒவ்வொரு உணவும்,<br>
     செயலுக்கு முந்தைய ஒவ்வொரு சிந்தனையும்<br>
     தூக்கத்திற்கு பின்னான ஒவ்வொரு கனவும் —<br>
-    அனைத்தும் ஒரு ராசியை சேர்ந்தவை,<br>
-    அனைத்தும் ஒரு கிரகத்திற்கு கட்டுப்படுகின்றன,<br>
-    அனைத்தும் சிறு பிரபஞ்சத்தில் பெரும் பிரபஞ்சத்தை வெளிப்படுத்துகின்றன.
+    அனைத்தும் ஒரு ராசியை சேர்ந்தவை.
   </p>
-
-<!-- █████████ SAMPLE ENDING (TAMIL) █████████ -->
-
-</div><!-- /lang-panel-ta -->
-
-<div class="ending">
-
-  <div class="ending-ring">
-    <span class="ending-icon">🔒</span>
-  </div>
-
-  <h2 class="ending-title">இங்கு மாதிரி முடிகிறது</h2>
-
-  <p class="ending-sub">
-    நீங்கள் மேஷம் ராசியின் ஆரம்பத்தை அனுபவித்துள்ளீர்கள்.
-  </p>
-
-  <div class="gdivider">
-    <div class="gdivider-line"></div>
-    <div class="gdivider-dot"></div>
-    <div class="gdivider-line"></div>
-  </div>
-
-  <p class="ending-verse">
-    மீதமுள்ள 11 ராசிகள் இந்த பயணத்தை தொடர்கின்றன —<br>
-    வாழ்க்கை, மனம், காலம் மற்றும் விதியின் ஆழமான உண்மைகளை வெளிப்படுத்துகின்றன.<br><br>
-    ஒவ்வொரு ராசியும் முழுமையின் ஒரு பகுதி,<br>
-    அனைத்தும் சேர்ந்து இருப்பின் முழு வரைபடமாகும்.
-  </p>
-
-  <div class="gdivider">
-    <div class="gdivider-line"></div>
-    <div class="gdivider-dot"></div>
-    <div class="gdivider-line"></div>
-  </div>
-
+  <div class="gdivider"><div class="gdivider-line"></div><div class="gdivider-dot"></div><div class="gdivider-line"></div></div>
+  <div class="ending-ring" style="margin-top:20px;"><span class="ending-icon">🔒</span></div>
+  <h2 class="ending-title" style="margin-top:20px;">இங்கு மாதிரி முடிகிறது</h2>
+  <p class="ending-sub">நீங்கள் மேஷம் ராசியின் ஆரம்பத்தை அனுபவித்துள்ளீர்கள்.</p>
   <p class="body-text" style="max-width:560px;margin:0 auto 20px;text-align:center;">
     இது ஒரு மாதிரி மட்டும். முழு 12 ராசிகளின் அறிவு <em>ராசி தத்துவம்</em> முழு பதிப்பில் கிடைக்கும்.
   </p>
-
-  <div class="ending-note">
-    🔒 மீதமுள்ள 11 ராசிகள் பூட்டப்பட்டுள்ளன
-  </div>
-
-  <!-- BUY BUTTON -->
-  <a href="https://pages.razorpay.com/Rasi-tattva" 
-  target="_blank">
-    <button style="margin-top:20px; padding:12px 24px; font-size:16px; cursor:pointer;">
-      🔓 முழு புத்தகத்தை திறக்க
-    </button>
-  </a>
-
+  <div class="ending-note">🔒 மீதமுள்ள 11 ராசிகள் பூட்டப்பட்டுள்ளன</div>
+  <a class="unlock-btn" href="https://pages.razorpay.com/Rasi-tattva" target="_blank">🔓 முழு புத்தகத்தை திறக்க</a>
 </div>
+
+</div><!-- /panel-ta -->
+</div><!-- /page -->
+
+<script>
+let isDark = true;
+function toggleTheme() {
+  isDark = !isDark;
+  const r  = document.documentElement,
+        l  = document.getElementById('theme-label'),
+        d  = document.getElementById('theme-icon-dark'),
+        lt = document.getElementById('theme-icon-light');
+  if (isDark) {
+    r.removeAttribute('data-theme');
+    l.textContent = 'Light';
+    d.style.display = '';
+    lt.style.display = 'none';
+  } else {
+    r.setAttribute('data-theme', 'light');
+    l.textContent = 'Dark';
+    d.style.display = 'none';
+    lt.style.display = '';
+  }
+}
+
+let isEn = true;
+function toggleLang() {
+  isEn = !isEn;
+  const e = document.getElementById('panel-en'),
+        t = document.getElementById('panel-ta'),
+        l = document.getElementById('lang-label'),
+        h = document.getElementById('html-root');
+  if (isEn) {
+    e.classList.add('active');
+    t.classList.remove('active');
+    l.textContent = 'தமிழ்';
+    h.setAttribute('lang', 'en');
+  } else {
+    t.classList.add('active');
+    e.classList.remove('active');
+    l.textContent = 'English';
+    h.setAttribute('lang', 'ta');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+</script>
+</body>
+</html>
